@@ -13,9 +13,13 @@
 		CC88C27E2182016500B57912 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC88C27D2182016500B57912 /* Assets.xcassets */; };
 		CC88C2812182016500B57912 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC88C27F2182016500B57912 /* LaunchScreen.storyboard */; };
 		CC88C2842182016500B57912 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC88C2832182016500B57912 /* main.m */; };
+		F40776E0AE819843F2A661B1 /* Pods_keep4u_IOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64296A8FC0020313979E1236 /* Pods_keep4u_IOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		64296A8FC0020313979E1236 /* Pods_keep4u_IOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_keep4u_IOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		64CAD7FFA59AFD2C1434FA5E /* Pods-keep4u-IOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-keep4u-IOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-keep4u-IOS/Pods-keep4u-IOS.debug.xcconfig"; sourceTree = "<group>"; };
+		C5140FACE89E06816EE674C4 /* Pods-keep4u-IOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-keep4u-IOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-keep4u-IOS/Pods-keep4u-IOS.release.xcconfig"; sourceTree = "<group>"; };
 		CC88C2712182016100B57912 /* keep4u-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "keep4u-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC88C2742182016100B57912 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CC88C2752182016100B57912 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -26,6 +30,7 @@
 		CC88C2802182016500B57912 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC88C2822182016500B57912 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC88C2832182016500B57912 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CC88C28A218207DE00B57912 /* Api.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Api.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +38,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F40776E0AE819843F2A661B1 /* Pods_keep4u_IOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11C70A2513FA647D08DC95F5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				64CAD7FFA59AFD2C1434FA5E /* Pods-keep4u-IOS.debug.xcconfig */,
+				C5140FACE89E06816EE674C4 /* Pods-keep4u-IOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		1A33DF0466BE51339CE16413 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				64296A8FC0020313979E1236 /* Pods_keep4u_IOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CC88C2682182016100B57912 = {
 			isa = PBXGroup;
 			children = (
 				CC88C2732182016100B57912 /* keep4u-IOS */,
 				CC88C2722182016100B57912 /* Products */,
+				11C70A2513FA647D08DC95F5 /* Pods */,
+				1A33DF0466BE51339CE16413 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +92,7 @@
 				CC88C27F2182016500B57912 /* LaunchScreen.storyboard */,
 				CC88C2822182016500B57912 /* Info.plist */,
 				CC88C2832182016500B57912 /* main.m */,
+				CC88C28A218207DE00B57912 /* Api.h */,
 			);
 			path = "keep4u-IOS";
 			sourceTree = "<group>";
@@ -78,9 +104,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CC88C2872182016500B57912 /* Build configuration list for PBXNativeTarget "keep4u-IOS" */;
 			buildPhases = (
+				0EFC737539FFFEDCA6A361E4 /* [CP] Check Pods Manifest.lock */,
 				CC88C26D2182016100B57912 /* Sources */,
 				CC88C26E2182016100B57912 /* Frameworks */,
 				CC88C26F2182016100B57912 /* Resources */,
+				CEFEDFB43A1A26073DC00C60 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,6 +163,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0EFC737539FFFEDCA6A361E4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-keep4u-IOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CEFEDFB43A1A26073DC00C60 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-keep4u-IOS/Pods-keep4u-IOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/ISO8601/ISO8601.framework",
+				"${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework",
+				"${BUILT_PRODUCTS_DIR}/OpenAPIClient/OpenAPIClient.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ISO8601.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONModel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenAPIClient.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-keep4u-IOS/Pods-keep4u-IOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CC88C26D2182016100B57912 /* Sources */ = {
@@ -283,6 +356,7 @@
 		};
 		CC88C2882182016500B57912 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64CAD7FFA59AFD2C1434FA5E /* Pods-keep4u-IOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +374,7 @@
 		};
 		CC88C2892182016500B57912 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5140FACE89E06816EE674C4 /* Pods-keep4u-IOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
