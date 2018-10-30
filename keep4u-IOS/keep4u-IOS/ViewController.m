@@ -7,8 +7,8 @@
 //
 
 #import "ViewController.h"
-
 #import "Api.h"
+
 
 @interface ViewController ()
 
@@ -16,22 +16,34 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    NSString* attachmentId = @"attachmentId_example"; // UUID of attachment
+//    NSString* attachmentId = @"attachmentId_example"; // UUID of attachment
+//
+//    OAIDefaultApi *apiInstance = [[OAIDefaultApi alloc] init];
+//
+//    // Delete attachment info by id
+//    [apiInstance attachmentsAttachmentIdDeleteWithAttachmentId:attachmentId
+//                                             completionHandler: ^(NSError* error) {
+//                                                 if (error) {
+//                                                     NSLog(@"Error: %@", error);
+//                                                 }
+//                                             }];
     
-    OAIDefaultApi *apiInstance = [[OAIDefaultApi alloc] init];
+//
     
-    // Delete attachment info by id
-    [apiInstance attachmentsAttachmentIdDeleteWithAttachmentId:attachmentId
-                                             completionHandler: ^(NSError* error) {
-                                                 if (error) {
-                                                     NSLog(@"Error: %@", error);
-                                                 }
-                                             }];
+
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    
+//    if (Authenticated)...
+    __weak id w_self = self;
+    [self performSegueWithIdentifier:@"MainRoutine" sender:w_self];
+}
 
 @end

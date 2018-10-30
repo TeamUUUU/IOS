@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC46AC5F218861D300F3D50A /* MainRoutineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC46AC5E218861D300F3D50A /* MainRoutineViewController.swift */; };
+		CC46AC612188634600F3D50A /* LeftMenuNavigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC46AC602188634600F3D50A /* LeftMenuNavigation.storyboard */; };
+		CC46AC63218863FC00F3D50A /* RightMenuNavigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC46AC62218863FC00F3D50A /* RightMenuNavigation.storyboard */; };
 		CC88C2762182016100B57912 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC88C2752182016100B57912 /* AppDelegate.m */; };
-		CC88C2792182016100B57912 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC88C2782182016100B57912 /* ViewController.m */; };
 		CC88C27C2182016100B57912 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC88C27A2182016100B57912 /* Main.storyboard */; };
 		CC88C27E2182016500B57912 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC88C27D2182016500B57912 /* Assets.xcassets */; };
 		CC88C2812182016500B57912 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC88C27F2182016500B57912 /* LaunchScreen.storyboard */; };
 		CC88C2842182016500B57912 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC88C2832182016500B57912 /* main.m */; };
+		CCE852B2218847D800DB57CE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE852B1218847D800DB57CE /* ViewController.m */; };
+		CCE852B52188591700DB57CE /* MainRoutine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCE852B42188591600DB57CE /* MainRoutine.storyboard */; };
 		F40776E0AE819843F2A661B1 /* Pods_keep4u_IOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64296A8FC0020313979E1236 /* Pods_keep4u_IOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -20,17 +24,22 @@
 		64296A8FC0020313979E1236 /* Pods_keep4u_IOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_keep4u_IOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64CAD7FFA59AFD2C1434FA5E /* Pods-keep4u-IOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-keep4u-IOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-keep4u-IOS/Pods-keep4u-IOS.debug.xcconfig"; sourceTree = "<group>"; };
 		C5140FACE89E06816EE674C4 /* Pods-keep4u-IOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-keep4u-IOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-keep4u-IOS/Pods-keep4u-IOS.release.xcconfig"; sourceTree = "<group>"; };
+		CC46AC5E218861D300F3D50A /* MainRoutineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRoutineViewController.swift; sourceTree = "<group>"; };
+		CC46AC602188634600F3D50A /* LeftMenuNavigation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LeftMenuNavigation.storyboard; sourceTree = "<group>"; };
+		CC46AC62218863FC00F3D50A /* RightMenuNavigation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RightMenuNavigation.storyboard; sourceTree = "<group>"; };
 		CC88C2712182016100B57912 /* keep4u-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "keep4u-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC88C2742182016100B57912 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CC88C2752182016100B57912 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CC88C2772182016100B57912 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		CC88C2782182016100B57912 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CC88C27B2182016100B57912 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CC88C27D2182016500B57912 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC88C2802182016500B57912 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC88C2822182016500B57912 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC88C2832182016500B57912 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CC88C28A218207DE00B57912 /* Api.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Api.h; sourceTree = "<group>"; };
+		CCE852AD2188476C00DB57CE /* keep4u-IOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "keep4u-IOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		CCE852B0218847D800DB57CE /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CCE852B1218847D800DB57CE /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CCE852B42188591600DB57CE /* MainRoutine.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainRoutine.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,16 +92,21 @@
 		CC88C2732182016100B57912 /* keep4u-IOS */ = {
 			isa = PBXGroup;
 			children = (
+				CCE852B0218847D800DB57CE /* ViewController.h */,
+				CCE852B1218847D800DB57CE /* ViewController.m */,
 				CC88C2742182016100B57912 /* AppDelegate.h */,
 				CC88C2752182016100B57912 /* AppDelegate.m */,
-				CC88C2772182016100B57912 /* ViewController.h */,
-				CC88C2782182016100B57912 /* ViewController.m */,
 				CC88C27A2182016100B57912 /* Main.storyboard */,
 				CC88C27D2182016500B57912 /* Assets.xcassets */,
 				CC88C27F2182016500B57912 /* LaunchScreen.storyboard */,
 				CC88C2822182016500B57912 /* Info.plist */,
 				CC88C2832182016500B57912 /* main.m */,
 				CC88C28A218207DE00B57912 /* Api.h */,
+				CCE852AD2188476C00DB57CE /* keep4u-IOS-Bridging-Header.h */,
+				CCE852B42188591600DB57CE /* MainRoutine.storyboard */,
+				CC46AC62218863FC00F3D50A /* RightMenuNavigation.storyboard */,
+				CC46AC602188634600F3D50A /* LeftMenuNavigation.storyboard */,
+				CC46AC5E218861D300F3D50A /* MainRoutineViewController.swift */,
 			);
 			path = "keep4u-IOS";
 			sourceTree = "<group>";
@@ -130,6 +144,7 @@
 				TargetAttributes = {
 					CC88C2702182016100B57912 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -156,7 +171,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCE852B52188591700DB57CE /* MainRoutine.storyboard in Resources */,
 				CC88C2812182016500B57912 /* LaunchScreen.storyboard in Resources */,
+				CC46AC63218863FC00F3D50A /* RightMenuNavigation.storyboard in Resources */,
+				CC46AC612188634600F3D50A /* LeftMenuNavigation.storyboard in Resources */,
 				CC88C27E2182016500B57912 /* Assets.xcassets in Resources */,
 				CC88C27C2182016100B57912 /* Main.storyboard in Resources */,
 			);
@@ -194,6 +212,7 @@
 				"${BUILT_PRODUCTS_DIR}/ISO8601/ISO8601.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework",
 				"${BUILT_PRODUCTS_DIR}/OpenAPIClient/OpenAPIClient.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -201,6 +220,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ISO8601.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONModel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenAPIClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -214,8 +234,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC88C2792182016100B57912 /* ViewController.m in Sources */,
+				CC46AC5F218861D300F3D50A /* MainRoutineViewController.swift in Sources */,
 				CC88C2842182016500B57912 /* main.m in Sources */,
+				CCE852B2218847D800DB57CE /* ViewController.m in Sources */,
 				CC88C2762182016100B57912 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,6 +380,7 @@
 			baseConfigurationReference = 64CAD7FFA59AFD2C1434FA5E /* Pods-keep4u-IOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UCTQDPM624;
 				INFOPLIST_FILE = "keep4u-IOS/Info.plist";
@@ -368,6 +390,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.TeamUUUU.keep4u-IOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "keep4u-IOS/keep4u-IOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -377,6 +402,7 @@
 			baseConfigurationReference = C5140FACE89E06816EE674C4 /* Pods-keep4u-IOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UCTQDPM624;
 				INFOPLIST_FILE = "keep4u-IOS/Info.plist";
@@ -386,6 +412,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.TeamUUUU.keep4u-IOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "keep4u-IOS/keep4u-IOS-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

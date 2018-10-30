@@ -20,15 +20,18 @@ PODS:
     - AFNetworking (~> 3)
     - ISO8601 (~> 0.6)
     - JSONModel (~> 1.2)
+  - SideMenu (5.0.1)
 
 DEPENDENCIES:
   - OpenAPIClient (from `Vendor`)
+  - SideMenu
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
     - ISO8601
     - JSONModel
+    - SideMenu
 
 EXTERNAL SOURCES:
   OpenAPIClient:
@@ -39,7 +42,8 @@ SPEC CHECKSUMS:
   ISO8601: d3ea3ba9b752820cf92c6b47a9ee327e9f0e13fc
   JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
   OpenAPIClient: f5576650a15b14a64264615e0d808e69b67007c7
+  SideMenu: 87efd943737bb83aedf0358884d09fcf5576636d
 
-PODFILE CHECKSUM: 1f77d657e549e185bc5fb9400a998f8ad276b128
+PODFILE CHECKSUM: ab64d3d2eae0213a70524ad92e1ad17c0d781348
 
 COCOAPODS: 1.5.3

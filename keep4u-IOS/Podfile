@@ -8,6 +8,6 @@ target 'keep4u-IOS' do
   # Pods for keep4u-IOS
 
   pod 'OpenAPIClient', :path => 'Vendor'
-
+  pod 'SideMenu'
 
 end
