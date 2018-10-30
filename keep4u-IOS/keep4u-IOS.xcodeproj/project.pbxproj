@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CC46AC5F218861D300F3D50A /* MainRoutineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC46AC5E218861D300F3D50A /* MainRoutineViewController.swift */; };
 		CC46AC612188634600F3D50A /* LeftMenuNavigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC46AC602188634600F3D50A /* LeftMenuNavigation.storyboard */; };
 		CC46AC63218863FC00F3D50A /* RightMenuNavigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC46AC62218863FC00F3D50A /* RightMenuNavigation.storyboard */; };
+		CC46AC65218866CA00F3D50A /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC46AC64218866CA00F3D50A /* NavController.swift */; };
+		CC46AC672188688100F3D50A /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC46AC662188688100F3D50A /* CollectionViewController.swift */; };
 		CC88C2762182016100B57912 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC88C2752182016100B57912 /* AppDelegate.m */; };
 		CC88C27C2182016100B57912 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC88C27A2182016100B57912 /* Main.storyboard */; };
 		CC88C27E2182016500B57912 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC88C27D2182016500B57912 /* Assets.xcassets */; };
@@ -24,9 +25,10 @@
 		64296A8FC0020313979E1236 /* Pods_keep4u_IOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_keep4u_IOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64CAD7FFA59AFD2C1434FA5E /* Pods-keep4u-IOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-keep4u-IOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-keep4u-IOS/Pods-keep4u-IOS.debug.xcconfig"; sourceTree = "<group>"; };
 		C5140FACE89E06816EE674C4 /* Pods-keep4u-IOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-keep4u-IOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-keep4u-IOS/Pods-keep4u-IOS.release.xcconfig"; sourceTree = "<group>"; };
-		CC46AC5E218861D300F3D50A /* MainRoutineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRoutineViewController.swift; sourceTree = "<group>"; };
 		CC46AC602188634600F3D50A /* LeftMenuNavigation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LeftMenuNavigation.storyboard; sourceTree = "<group>"; };
 		CC46AC62218863FC00F3D50A /* RightMenuNavigation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RightMenuNavigation.storyboard; sourceTree = "<group>"; };
+		CC46AC64218866CA00F3D50A /* NavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavController.swift; sourceTree = "<group>"; };
+		CC46AC662188688100F3D50A /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		CC88C2712182016100B57912 /* keep4u-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "keep4u-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC88C2742182016100B57912 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CC88C2752182016100B57912 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -106,7 +108,8 @@
 				CCE852B42188591600DB57CE /* MainRoutine.storyboard */,
 				CC46AC62218863FC00F3D50A /* RightMenuNavigation.storyboard */,
 				CC46AC602188634600F3D50A /* LeftMenuNavigation.storyboard */,
-				CC46AC5E218861D300F3D50A /* MainRoutineViewController.swift */,
+				CC46AC64218866CA00F3D50A /* NavController.swift */,
+				CC46AC662188688100F3D50A /* CollectionViewController.swift */,
 			);
 			path = "keep4u-IOS";
 			sourceTree = "<group>";
@@ -234,10 +237,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC46AC5F218861D300F3D50A /* MainRoutineViewController.swift in Sources */,
+				CC46AC65218866CA00F3D50A /* NavController.swift in Sources */,
 				CC88C2842182016500B57912 /* main.m in Sources */,
 				CCE852B2218847D800DB57CE /* ViewController.m in Sources */,
 				CC88C2762182016100B57912 /* AppDelegate.m in Sources */,
+				CC46AC672188688100F3D50A /* CollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
