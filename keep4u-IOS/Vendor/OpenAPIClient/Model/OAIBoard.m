@@ -1,6 +1,6 @@
-#import "OAINote.h"
+#import "OAIBoard.h"
 
-@implementation OAINote
+@implementation OAIBoard
 
 - (instancetype)init {
   self = [super init];
@@ -17,7 +17,7 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"_id": @"id", @"boardId": @"board_id", @"title": @"title", @"content": @"content", @"createdAt": @"created_at", @"attachments": @"attachments" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"_id": @"id", @"title": @"title", @"_description": @"description", @"collaboration": @"collaboration" }];
 }
 
 /**
@@ -27,7 +27,7 @@
  */
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
-  NSArray *optionalProperties = @[@"_id", @"boardId", @"createdAt", @"attachments"];
+  NSArray *optionalProperties = @[@"_description", @"collaboration"];
   return [optionalProperties containsObject:propertyName];
 }
 

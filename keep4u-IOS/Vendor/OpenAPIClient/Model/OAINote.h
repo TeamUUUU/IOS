@@ -28,16 +28,16 @@
 /* Note unique identifier [optional]
  */
 @property(nonatomic) NSString* _id;
-/* The dock to which the note belongs [optional]
+/* The board to which the note belongs [optional]
  */
-@property(nonatomic) NSString* dockId;
+@property(nonatomic) NSString* boardId;
 /* Note title 
  */
 @property(nonatomic) NSString* title;
 /* Note content(must be valid markdown) 
  */
 @property(nonatomic) NSString* content;
-/* Dock creation unix timestamp [optional]
+/* Note creation unix timestamp [optional]
  */
 @property(nonatomic) NSNumber* createdAt;
 

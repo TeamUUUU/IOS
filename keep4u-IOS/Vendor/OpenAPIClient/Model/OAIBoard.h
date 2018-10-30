@@ -14,16 +14,24 @@
 */
 
 
-#import "OAIAttachment.h"
-@protocol OAIAttachment;
-@class OAIAttachment;
 
 
 
-@protocol OAIAttachments
+@protocol OAIBoard
 @end
 
-@interface OAIAttachments : NSMutableArray
+@interface OAIBoard : OAIObject
 
+/* board unique identifier 
+ */
+@property(nonatomic) NSString* _id;
+/* board title 
+ */
+@property(nonatomic) NSString* title;
+
+@property(nonatomic) NSString* _description;
+/* collaborators ids [optional]
+ */
+@property(nonatomic) NSArray<NSString*>* collaboration;
 
 @end

@@ -14,16 +14,16 @@
 */
 
 
-#import "OAIAttachment.h"
-@protocol OAIAttachment;
-@class OAIAttachment;
+#import "OAIBoard.h"
+@protocol OAIBoard;
+@class OAIBoard;
 
 
 
-@protocol OAIAttachments
+@protocol OAIBoards
 @end
 
-@interface OAIAttachments : NSMutableArray
+@interface OAIBoards : NSMutableArray
 
 
 @end
