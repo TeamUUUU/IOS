@@ -30,6 +30,9 @@
 @property(nonatomic) NSString* title;
 
 @property(nonatomic) NSString* _description;
+/* Id of board owner [optional]
+ */
+@property(nonatomic) NSString* owner;
 /* collaborators ids [optional]
  */
 @property(nonatomic) NSArray<NSString*>* collaboration;
