@@ -1,22 +1,24 @@
 # OAIDefaultApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *http://188.246.233.13:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**attachmentsAttachmentIdDelete**](OAIDefaultApi.md#attachmentsattachmentiddelete) | **DELETE** /attachments/{attachment_id} | Delete attachment info by id
 [**attachmentsAttachmentIdGet**](OAIDefaultApi.md#attachmentsattachmentidget) | **GET** /attachments/{attachment_id} | Get attachment info by id
 [**attachmentsPost**](OAIDefaultApi.md#attachmentspost) | **POST** /attachments | Upload attachment to server
-[**docksDockIdDelete**](OAIDefaultApi.md#docksdockiddelete) | **DELETE** /docks/{dock_id} | Delete dock by id
-[**docksDockIdGet**](OAIDefaultApi.md#docksdockidget) | **GET** /docks/{dock_id} | Get dock by id
-[**docksDockIdNotesGet**](OAIDefaultApi.md#docksdockidnotesget) | **GET** /docks/{dock_id}/notes | Get notes for dock
-[**docksDockIdNotesPost**](OAIDefaultApi.md#docksdockidnotespost) | **POST** /docks/{dock_id}/notes | Create new note on dock
-[**docksDockIdPut**](OAIDefaultApi.md#docksdockidput) | **PUT** /docks/{dock_id} | Replace dock
-[**docksGet**](OAIDefaultApi.md#docksget) | **GET** /docks | Get user docks
-[**docksPost**](OAIDefaultApi.md#dockspost) | **POST** /docks | Create new dock
-[**notesNoteIdDelete**](OAIDefaultApi.md#notesnoteiddelete) | **DELETE** /notes/{note_id} | Delete dock by id
+[**boardsBoardIdCollaboratorsPatch**](OAIDefaultApi.md#boardsboardidcollaboratorspatch) | **PATCH** /boards/{board_id}/collaborators | 
+[**boardsBoardIdDelete**](OAIDefaultApi.md#boardsboardiddelete) | **DELETE** /boards/{board_id} | Delete board by id
+[**boardsBoardIdGet**](OAIDefaultApi.md#boardsboardidget) | **GET** /boards/{board_id} | Get board by id
+[**boardsBoardIdNotesGet**](OAIDefaultApi.md#boardsboardidnotesget) | **GET** /boards/{board_id}/notes | Get notes for board
+[**boardsBoardIdNotesPost**](OAIDefaultApi.md#boardsboardidnotespost) | **POST** /boards/{board_id}/notes | Create new note on board
+[**boardsBoardIdPut**](OAIDefaultApi.md#boardsboardidput) | **PUT** /boards/{board_id} | Replace board
+[**boardsGet**](OAIDefaultApi.md#boardsget) | **GET** /boards | Get user boards
+[**boardsPost**](OAIDefaultApi.md#boardspost) | **POST** /boards | Create new board
+[**notesNoteIdDelete**](OAIDefaultApi.md#notesnoteiddelete) | **DELETE** /notes/{note_id} | Delete note by id
 [**notesNoteIdGet**](OAIDefaultApi.md#notesnoteidget) | **GET** /notes/{note_id} | Get note by id
 [**notesNoteIdPatch**](OAIDefaultApi.md#notesnoteidpatch) | **PATCH** /notes/{note_id} | Update note content
+[**searchNotesGet**](OAIDefaultApi.md#searchnotesget) | **GET** /search/notes | Search notes by related text
 
 
 # **attachmentsAttachmentIdDelete**
@@ -160,26 +162,30 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **docksDockIdDelete**
+# **boardsBoardIdCollaboratorsPatch**
 ```objc
--(NSURLSessionTask*) docksDockIdDeleteWithDockId: (NSString*) dockId
-        completionHandler: (void (^)(NSError* error)) handler;
+-(NSURLSessionTask*) boardsBoardIdCollaboratorsPatchWithRequestBody: (NSArray<NSString*>*) requestBody
+        completionHandler: (void (^)(OAICollaboration* output, NSError* error)) handler;
 ```
 
-Delete dock by id
+
+
+Adds collaborators to board. Returns all board's collaborators.
 
 ### Example 
 ```objc
 
-NSString* dockId = @"dockId_example"; // UUID of dock
+NSArray<NSString*>* requestBody = @[[[NSArray alloc] init]]; //  (optional)
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
-// Delete dock by id
-[apiInstance docksDockIdDeleteWithDockId:dockId
-          completionHandler: ^(NSError* error) {
+[apiInstance boardsBoardIdCollaboratorsPatchWithRequestBody:requestBody
+          completionHandler: ^(OAICollaboration* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
                         if (error) {
-                            NSLog(@"Error calling OAIDefaultApi->docksDockIdDelete: %@", error);
+                            NSLog(@"Error calling OAIDefaultApi->boardsBoardIdCollaboratorsPatch: %@", error);
                         }
                     }];
 ```
@@ -188,7 +194,52 @@ OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dockId** | **NSString***| UUID of dock | 
+ **requestBody** | [**NSArray&lt;NSString*&gt;***](NSArray.md)|  | [optional] 
+
+### Return type
+
+[**OAICollaboration***](OAICollaboration.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **boardsBoardIdDelete**
+```objc
+-(NSURLSessionTask*) boardsBoardIdDeleteWithBoardId: (NSString*) boardId
+        completionHandler: (void (^)(NSError* error)) handler;
+```
+
+Delete board by id
+
+### Example 
+```objc
+
+NSString* boardId = @"boardId_example"; // UUID of board
+
+OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
+
+// Delete board by id
+[apiInstance boardsBoardIdDeleteWithBoardId:boardId
+          completionHandler: ^(NSError* error) {
+                        if (error) {
+                            NSLog(@"Error calling OAIDefaultApi->boardsBoardIdDelete: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **boardId** | **NSString***| UUID of board | 
 
 ### Return type
 
@@ -205,29 +256,29 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **docksDockIdGet**
+# **boardsBoardIdGet**
 ```objc
--(NSURLSessionTask*) docksDockIdGetWithDockId: (NSString*) dockId
-        completionHandler: (void (^)(OAIDock* output, NSError* error)) handler;
+-(NSURLSessionTask*) boardsBoardIdGetWithBoardId: (NSString*) boardId
+        completionHandler: (void (^)(OAIBoard* output, NSError* error)) handler;
 ```
 
-Get dock by id
+Get board by id
 
 ### Example 
 ```objc
 
-NSString* dockId = @"dockId_example"; // UUID of dock
+NSString* boardId = @"boardId_example"; // UUID of board
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
-// Get dock by id
-[apiInstance docksDockIdGetWithDockId:dockId
-          completionHandler: ^(OAIDock* output, NSError* error) {
+// Get board by id
+[apiInstance boardsBoardIdGetWithBoardId:boardId
+          completionHandler: ^(OAIBoard* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
                         if (error) {
-                            NSLog(@"Error calling OAIDefaultApi->docksDockIdGet: %@", error);
+                            NSLog(@"Error calling OAIDefaultApi->boardsBoardIdGet: %@", error);
                         }
                     }];
 ```
@@ -236,11 +287,11 @@ OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dockId** | **NSString***| UUID of dock | 
+ **boardId** | **NSString***| UUID of board | 
 
 ### Return type
 
-[**OAIDock***](OAIDock.md)
+[**OAIBoard***](OAIBoard.md)
 
 ### Authorization
 
@@ -253,13 +304,13 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **docksDockIdNotesGet**
+# **boardsBoardIdNotesGet**
 ```objc
--(NSURLSessionTask*) docksDockIdNotesGetWithCompletionHandler: 
+-(NSURLSessionTask*) boardsBoardIdNotesGetWithCompletionHandler: 
         (void (^)(OAINotes* output, NSError* error)) handler;
 ```
 
-Get notes for dock
+Get notes for board
 
 ### Example 
 ```objc
@@ -267,14 +318,14 @@ Get notes for dock
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
-// Get notes for dock
-[apiInstance docksDockIdNotesGetWithCompletionHandler: 
+// Get notes for board
+[apiInstance boardsBoardIdNotesGetWithCompletionHandler: 
           ^(OAINotes* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
                         if (error) {
-                            NSLog(@"Error calling OAIDefaultApi->docksDockIdNotesGet: %@", error);
+                            NSLog(@"Error calling OAIDefaultApi->boardsBoardIdNotesGet: %@", error);
                         }
                     }];
 ```
@@ -297,13 +348,13 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **docksDockIdNotesPost**
+# **boardsBoardIdNotesPost**
 ```objc
--(NSURLSessionTask*) docksDockIdNotesPostWithNote: (OAINote*) note
+-(NSURLSessionTask*) boardsBoardIdNotesPostWithNote: (OAINote*) note
         completionHandler: (void (^)(OAINote* output, NSError* error)) handler;
 ```
 
-Create new note on dock
+Create new note on board
 
 ### Example 
 ```objc
@@ -312,14 +363,14 @@ OAINote* note = [[OAINote alloc] init]; //  (optional)
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
-// Create new note on dock
-[apiInstance docksDockIdNotesPostWithNote:note
+// Create new note on board
+[apiInstance boardsBoardIdNotesPostWithNote:note
           completionHandler: ^(OAINote* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
                         if (error) {
-                            NSLog(@"Error calling OAIDefaultApi->docksDockIdNotesPost: %@", error);
+                            NSLog(@"Error calling OAIDefaultApi->boardsBoardIdNotesPost: %@", error);
                         }
                     }];
 ```
@@ -345,34 +396,34 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **docksDockIdPut**
+# **boardsBoardIdPut**
 ```objc
--(NSURLSessionTask*) docksDockIdPutWithDockId: (NSString*) dockId
-    dock: (OAIDock*) dock
-        completionHandler: (void (^)(OAIDock* output, NSError* error)) handler;
+-(NSURLSessionTask*) boardsBoardIdPutWithBoardId: (NSString*) boardId
+    board: (OAIBoard*) board
+        completionHandler: (void (^)(OAIBoard* output, NSError* error)) handler;
 ```
 
-Replace dock
+Replace board
 
-Update dock description 
+Update board description 
 
 ### Example 
 ```objc
 
-NSString* dockId = @"dockId_example"; // UUID of dock
-OAIDock* dock = [[OAIDock alloc] init]; //  (optional)
+NSString* boardId = @"boardId_example"; // UUID of board
+OAIBoard* board = [[OAIBoard alloc] init]; //  (optional)
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
-// Replace dock
-[apiInstance docksDockIdPutWithDockId:dockId
-              dock:dock
-          completionHandler: ^(OAIDock* output, NSError* error) {
+// Replace board
+[apiInstance boardsBoardIdPutWithBoardId:boardId
+              board:board
+          completionHandler: ^(OAIBoard* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
                         if (error) {
-                            NSLog(@"Error calling OAIDefaultApi->docksDockIdPut: %@", error);
+                            NSLog(@"Error calling OAIDefaultApi->boardsBoardIdPut: %@", error);
                         }
                     }];
 ```
@@ -381,12 +432,12 @@ OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dockId** | **NSString***| UUID of dock | 
- **dock** | [**OAIDock***](OAIDock.md)|  | [optional] 
+ **boardId** | **NSString***| UUID of board | 
+ **board** | [**OAIBoard***](OAIBoard.md)|  | [optional] 
 
 ### Return type
 
-[**OAIDock***](OAIDock.md)
+[**OAIBoard***](OAIBoard.md)
 
 ### Authorization
 
@@ -399,40 +450,44 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **docksGet**
+# **boardsGet**
 ```objc
--(NSURLSessionTask*) docksGetWithCompletionHandler: 
-        (void (^)(OAIDocks* output, NSError* error)) handler;
+-(NSURLSessionTask*) boardsGetWithUserId: (NSString*) userId
+        completionHandler: (void (^)(OAIBoards* output, NSError* error)) handler;
 ```
 
-Get user docks
+Get user boards
 
-Gets all docks for current user 
+Gets all boards for current user 
 
 ### Example 
 ```objc
 
+NSString* userId = @"userId_example"; // Google ClientID token
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
-// Get user docks
-[apiInstance docksGetWithCompletionHandler: 
-          ^(OAIDocks* output, NSError* error) {
+// Get user boards
+[apiInstance boardsGetWithUserId:userId
+          completionHandler: ^(OAIBoards* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
                         if (error) {
-                            NSLog(@"Error calling OAIDefaultApi->docksGet: %@", error);
+                            NSLog(@"Error calling OAIDefaultApi->boardsGet: %@", error);
                         }
                     }];
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **NSString***| Google ClientID token | 
 
 ### Return type
 
-[**OAIDocks***](OAIDocks.md)
+[**OAIBoards***](OAIBoards.md)
 
 ### Authorization
 
@@ -445,31 +500,31 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **docksPost**
+# **boardsPost**
 ```objc
--(NSURLSessionTask*) docksPostWithDock: (OAIDock*) dock
-        completionHandler: (void (^)(OAIDock* output, NSError* error)) handler;
+-(NSURLSessionTask*) boardsPostWithBoard: (OAIBoard*) board
+        completionHandler: (void (^)(OAIBoard* output, NSError* error)) handler;
 ```
 
-Create new dock
+Create new board
 
-Create new dock for current user 
+Create new board for current user 
 
 ### Example 
 ```objc
 
-OAIDock* dock = [[OAIDock alloc] init]; //  (optional)
+OAIBoard* board = [[OAIBoard alloc] init]; //  (optional)
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
-// Create new dock
-[apiInstance docksPostWithDock:dock
-          completionHandler: ^(OAIDock* output, NSError* error) {
+// Create new board
+[apiInstance boardsPostWithBoard:board
+          completionHandler: ^(OAIBoard* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
                         if (error) {
-                            NSLog(@"Error calling OAIDefaultApi->docksPost: %@", error);
+                            NSLog(@"Error calling OAIDefaultApi->boardsPost: %@", error);
                         }
                     }];
 ```
@@ -478,11 +533,11 @@ OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dock** | [**OAIDock***](OAIDock.md)|  | [optional] 
+ **board** | [**OAIBoard***](OAIBoard.md)|  | [optional] 
 
 ### Return type
 
-[**OAIDock***](OAIDock.md)
+[**OAIBoard***](OAIBoard.md)
 
 ### Authorization
 
@@ -501,7 +556,7 @@ No authorization required
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
-Delete dock by id
+Delete note by id
 
 ### Example 
 ```objc
@@ -510,7 +565,7 @@ NSString* noteId = @"noteId_example"; // UUID of note
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
-// Delete dock by id
+// Delete note by id
 [apiInstance notesNoteIdDeleteWithNoteId:noteId
           completionHandler: ^(NSError* error) {
                         if (error) {
@@ -591,8 +646,8 @@ No authorization required
 # **notesNoteIdPatch**
 ```objc
 -(NSURLSessionTask*) notesNoteIdPatchWithNoteId: (NSString*) noteId
-    body: (OAIBody*) body
-        completionHandler: (void (^)(OAIDock* output, NSError* error)) handler;
+    noteUpdate: (OAINoteUpdate*) noteUpdate
+        completionHandler: (void (^)(OAIBoard* output, NSError* error)) handler;
 ```
 
 Update note content
@@ -601,14 +656,14 @@ Update note content
 ```objc
 
 NSString* noteId = @"noteId_example"; // UUID of note
-OAIBody* body = [[OAIBody alloc] init]; //  (optional)
+OAINoteUpdate* noteUpdate = [[OAINoteUpdate alloc] init]; //  (optional)
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 // Update note content
 [apiInstance notesNoteIdPatchWithNoteId:noteId
-              body:body
-          completionHandler: ^(OAIDock* output, NSError* error) {
+              noteUpdate:noteUpdate
+          completionHandler: ^(OAIBoard* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -623,11 +678,11 @@ OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **noteId** | **NSString***| UUID of note | 
- **body** | [**OAIBody***](OAIBody.md)|  | [optional] 
+ **noteUpdate** | [**OAINoteUpdate***](OAINoteUpdate.md)|  | [optional] 
 
 ### Return type
 
-[**OAIDock***](OAIDock.md)
+[**OAIBoard***](OAIBoard.md)
 
 ### Authorization
 
@@ -636,6 +691,62 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **searchNotesGet**
+```objc
+-(NSURLSessionTask*) searchNotesGetWithText: (NSString*) text
+    limit: (NSNumber*) limit
+    asc: (NSNumber*) asc
+        completionHandler: (void (^)(OAINotes* output, NSError* error)) handler;
+```
+
+Search notes by related text
+
+### Example 
+```objc
+
+NSString* text = @"text_example"; // 
+NSNumber* limit = @10; // text to be searched in notes (optional) (default to @10)
+NSNumber* asc = @(NO); // should notes be returned in descending(default) or ascending order. (optional) (default to @(NO))
+
+OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
+
+// Search notes by related text
+[apiInstance searchNotesGetWithText:text
+              limit:limit
+              asc:asc
+          completionHandler: ^(OAINotes* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling OAIDefaultApi->searchNotesGet: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **text** | **NSString***|  | 
+ **limit** | **NSNumber***| text to be searched in notes | [optional] [default to @10]
+ **asc** | **NSNumber***| should notes be returned in descending(default) or ascending order. | [optional] [default to @(NO)]
+
+### Return type
+
+[**OAINotes***](OAINotes.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

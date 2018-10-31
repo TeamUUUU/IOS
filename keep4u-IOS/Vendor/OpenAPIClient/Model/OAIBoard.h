@@ -14,6 +14,9 @@
 */
 
 
+#import "OAICollaboration.h"
+@protocol OAICollaboration;
+@class OAICollaboration;
 
 
 
@@ -33,8 +36,7 @@
 /* Id of board owner [optional]
  */
 @property(nonatomic) NSString* owner;
-/* collaborators ids [optional]
- */
-@property(nonatomic) NSArray<NSString*>* collaboration;
+
+@property(nonatomic) OAICollaboration* collaboration;
 
 @end

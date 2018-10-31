@@ -2,11 +2,12 @@
 #import "OAIQueryParamCollection.h"
 #import "OAIApiClient.h"
 #import "OAIAttachment.h"
-#import "OAIBody.h"
-#import "OAIDock.h"
-#import "OAIDocks.h"
+#import "OAIBoard.h"
+#import "OAIBoards.h"
+#import "OAICollaboration.h"
 #import "OAIError.h"
 #import "OAINote.h"
+#import "OAINoteUpdate.h"
 #import "OAINotes.h"
 
 
@@ -247,30 +248,85 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 }
 
 ///
-/// Delete dock by id
 /// 
-///  @param dockId UUID of dock 
+/// Adds collaborators to board. Returns all board's collaborators.
+///  @param requestBody  (optional)
+///
+///  @returns OAICollaboration*
+///
+-(NSURLSessionTask*) boardsBoardIdCollaboratorsPatchWithRequestBody: (NSArray<NSString*>*) requestBody
+    completionHandler: (void (^)(OAICollaboration* output, NSError* error)) handler {
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/boards/{board_id}/collaborators"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+
+    // Authentication setting
+    NSArray *authSettings = @[];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    bodyParam = requestBody;
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"PATCH"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"OAICollaboration*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((OAICollaboration*)data, error);
+                                }
+                            }];
+}
+
+///
+/// Delete board by id
+/// 
+///  @param boardId UUID of board 
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) docksDockIdDeleteWithDockId: (NSString*) dockId
+-(NSURLSessionTask*) boardsBoardIdDeleteWithBoardId: (NSString*) boardId
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'dockId' is set
-    if (dockId == nil) {
-        NSParameterAssert(dockId);
+    // verify the required parameter 'boardId' is set
+    if (boardId == nil) {
+        NSParameterAssert(boardId);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"dockId"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"boardId"] };
             NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
             handler(error);
         }
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/docks/{dock_id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/boards/{board_id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (dockId != nil) {
-        pathParams[@"dock_id"] = dockId;
+    if (boardId != nil) {
+        pathParams[@"board_id"] = boardId;
     }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
@@ -315,30 +371,30 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 }
 
 ///
-/// Get dock by id
+/// Get board by id
 /// 
-///  @param dockId UUID of dock 
+///  @param boardId UUID of board 
 ///
-///  @returns OAIDock*
+///  @returns OAIBoard*
 ///
--(NSURLSessionTask*) docksDockIdGetWithDockId: (NSString*) dockId
-    completionHandler: (void (^)(OAIDock* output, NSError* error)) handler {
-    // verify the required parameter 'dockId' is set
-    if (dockId == nil) {
-        NSParameterAssert(dockId);
+-(NSURLSessionTask*) boardsBoardIdGetWithBoardId: (NSString*) boardId
+    completionHandler: (void (^)(OAIBoard* output, NSError* error)) handler {
+    // verify the required parameter 'boardId' is set
+    if (boardId == nil) {
+        NSParameterAssert(boardId);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"dockId"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"boardId"] };
             NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/docks/{dock_id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/boards/{board_id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (dockId != nil) {
-        pathParams[@"dock_id"] = dockId;
+    if (boardId != nil) {
+        pathParams[@"board_id"] = boardId;
     }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
@@ -374,22 +430,22 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIDock*"
+                              responseType: @"OAIBoard*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIDock*)data, error);
+                                    handler((OAIBoard*)data, error);
                                 }
                             }];
 }
 
 ///
-/// Get notes for dock
+/// Get notes for board
 /// 
 ///  @returns OAINotes*
 ///
--(NSURLSessionTask*) docksDockIdNotesGetWithCompletionHandler: 
+-(NSURLSessionTask*) boardsBoardIdNotesGetWithCompletionHandler: 
     (void (^)(OAINotes* output, NSError* error)) handler {
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/docks/{dock_id}/notes"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/boards/{board_id}/notes"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
 
@@ -435,15 +491,15 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 }
 
 ///
-/// Create new note on dock
+/// Create new note on board
 /// 
 ///  @param note  (optional)
 ///
 ///  @returns OAINote*
 ///
--(NSURLSessionTask*) docksDockIdNotesPostWithNote: (OAINote*) note
+-(NSURLSessionTask*) boardsBoardIdNotesPostWithNote: (OAINote*) note
     completionHandler: (void (^)(OAINote* output, NSError* error)) handler {
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/docks/{dock_id}/notes"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/boards/{board_id}/notes"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
 
@@ -490,33 +546,33 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 }
 
 ///
-/// Replace dock
-/// Update dock description 
-///  @param dockId UUID of dock 
+/// Replace board
+/// Update board description 
+///  @param boardId UUID of board 
 ///
-///  @param dock  (optional)
+///  @param board  (optional)
 ///
-///  @returns OAIDock*
+///  @returns OAIBoard*
 ///
--(NSURLSessionTask*) docksDockIdPutWithDockId: (NSString*) dockId
-    dock: (OAIDock*) dock
-    completionHandler: (void (^)(OAIDock* output, NSError* error)) handler {
-    // verify the required parameter 'dockId' is set
-    if (dockId == nil) {
-        NSParameterAssert(dockId);
+-(NSURLSessionTask*) boardsBoardIdPutWithBoardId: (NSString*) boardId
+    board: (OAIBoard*) board
+    completionHandler: (void (^)(OAIBoard* output, NSError* error)) handler {
+    // verify the required parameter 'boardId' is set
+    if (boardId == nil) {
+        NSParameterAssert(boardId);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"dockId"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"boardId"] };
             NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/docks/{dock_id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/boards/{board_id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (dockId != nil) {
-        pathParams[@"dock_id"] = dockId;
+    if (boardId != nil) {
+        pathParams[@"board_id"] = boardId;
     }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
@@ -540,7 +596,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = dock;
+    bodyParam = board;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"PUT"
@@ -553,26 +609,42 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIDock*"
+                              responseType: @"OAIBoard*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIDock*)data, error);
+                                    handler((OAIBoard*)data, error);
                                 }
                             }];
 }
 
 ///
-/// Get user docks
-/// Gets all docks for current user 
-///  @returns OAIDocks*
+/// Get user boards
+/// Gets all boards for current user 
+///  @param userId Google ClientID token 
 ///
--(NSURLSessionTask*) docksGetWithCompletionHandler: 
-    (void (^)(OAIDocks* output, NSError* error)) handler {
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/docks"];
+///  @returns OAIBoards*
+///
+-(NSURLSessionTask*) boardsGetWithUserId: (NSString*) userId
+    completionHandler: (void (^)(OAIBoards* output, NSError* error)) handler {
+    // verify the required parameter 'userId' is set
+    if (userId == nil) {
+        NSParameterAssert(userId);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"userId"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/boards"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (userId != nil) {
+        queryParams[@"user_id"] = userId;
+    }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
     // HTTP header `Accept`
@@ -605,24 +677,24 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIDocks*"
+                              responseType: @"OAIBoards*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIDocks*)data, error);
+                                    handler((OAIBoards*)data, error);
                                 }
                             }];
 }
 
 ///
-/// Create new dock
-/// Create new dock for current user 
-///  @param dock  (optional)
+/// Create new board
+/// Create new board for current user 
+///  @param board  (optional)
 ///
-///  @returns OAIDock*
+///  @returns OAIBoard*
 ///
--(NSURLSessionTask*) docksPostWithDock: (OAIDock*) dock
-    completionHandler: (void (^)(OAIDock* output, NSError* error)) handler {
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/docks"];
+-(NSURLSessionTask*) boardsPostWithBoard: (OAIBoard*) board
+    completionHandler: (void (^)(OAIBoard* output, NSError* error)) handler {
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/boards"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
 
@@ -647,7 +719,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = dock;
+    bodyParam = board;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"
@@ -660,16 +732,16 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIDock*"
+                              responseType: @"OAIBoard*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIDock*)data, error);
+                                    handler((OAIBoard*)data, error);
                                 }
                             }];
 }
 
 ///
-/// Delete dock by id
+/// Delete note by id
 /// 
 ///  @param noteId UUID of note 
 ///
@@ -809,13 +881,13 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 /// 
 ///  @param noteId UUID of note 
 ///
-///  @param body  (optional)
+///  @param noteUpdate  (optional)
 ///
-///  @returns OAIDock*
+///  @returns OAIBoard*
 ///
 -(NSURLSessionTask*) notesNoteIdPatchWithNoteId: (NSString*) noteId
-    body: (OAIBody*) body
-    completionHandler: (void (^)(OAIDock* output, NSError* error)) handler {
+    noteUpdate: (OAINoteUpdate*) noteUpdate
+    completionHandler: (void (^)(OAIBoard* output, NSError* error)) handler {
     // verify the required parameter 'noteId' is set
     if (noteId == nil) {
         NSParameterAssert(noteId);
@@ -855,7 +927,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = body;
+    bodyParam = noteUpdate;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"PATCH"
@@ -868,10 +940,90 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIDock*"
+                              responseType: @"OAIBoard*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIDock*)data, error);
+                                    handler((OAIBoard*)data, error);
+                                }
+                            }];
+}
+
+///
+/// Search notes by related text
+/// 
+///  @param text  
+///
+///  @param limit text to be searched in notes (optional, default to @10)
+///
+///  @param asc should notes be returned in descending(default) or ascending order. (optional, default to @(NO))
+///
+///  @returns OAINotes*
+///
+-(NSURLSessionTask*) searchNotesGetWithText: (NSString*) text
+    limit: (NSNumber*) limit
+    asc: (NSNumber*) asc
+    completionHandler: (void (^)(OAINotes* output, NSError* error)) handler {
+    // verify the required parameter 'text' is set
+    if (text == nil) {
+        NSParameterAssert(text);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"text"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/search/notes"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (text != nil) {
+        queryParams[@"text"] = text;
+    }
+    if (limit != nil) {
+        queryParams[@"limit"] = limit;
+    }
+    if (asc != nil) {
+        queryParams[@"asc"] = [asc isEqual:@(YES)] ? @"true" : @"false";
+    }
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"GET"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"OAINotes*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((OAINotes*)data, error);
                                 }
                             }];
 }

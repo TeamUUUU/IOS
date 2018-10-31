@@ -121,8 +121,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CC88C2872182016500B57912 /* Build configuration list for PBXNativeTarget "keep4u-IOS" */;
 			buildPhases = (
-				CC46AC6821886C5200F3D50A /* ShellScript */,
 				0EFC737539FFFEDCA6A361E4 /* [CP] Check Pods Manifest.lock */,
+				CC46AC6821886C5200F3D50A /* ShellScript */,
 				CC88C26D2182016100B57912 /* Sources */,
 				CC88C26E2182016100B57912 /* Frameworks */,
 				CC88C26F2182016100B57912 /* Resources */,
@@ -228,7 +228,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-keep4u-IOS/Pods-keep4u-IOS-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-keep4u-IOS/Pods-keep4u-IOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/ISO8601/ISO8601.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework",
@@ -245,7 +245,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-keep4u-IOS/Pods-keep4u-IOS-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-keep4u-IOS/Pods-keep4u-IOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

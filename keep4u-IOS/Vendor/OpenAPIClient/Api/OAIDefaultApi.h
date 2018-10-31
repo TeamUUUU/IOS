@@ -1,10 +1,11 @@
 #import <Foundation/Foundation.h>
 #import "OAIAttachment.h"
-#import "OAIBody.h"
-#import "OAIDock.h"
-#import "OAIDocks.h"
+#import "OAIBoard.h"
+#import "OAIBoards.h"
+#import "OAICollaboration.h"
 #import "OAIError.h"
 #import "OAINote.h"
+#import "OAINoteUpdate.h"
 #import "OAINotes.h"
 #import "OAIApi.h"
 
@@ -68,33 +69,46 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
     completionHandler: (void (^)(OAIAttachment* output, NSError* error)) handler;
 
 
-/// Delete dock by id
+/// 
+/// Adds collaborators to board. Returns all board's collaborators.
+///
+/// @param requestBody  (optional)
+/// 
+///  code:200 message:"Collaborators was successfully added",
+///  code:404 message:"Board not found"
+///
+/// @return OAICollaboration*
+-(NSURLSessionTask*) boardsBoardIdCollaboratorsPatchWithRequestBody: (NSArray<NSString*>*) requestBody
+    completionHandler: (void (^)(OAICollaboration* output, NSError* error)) handler;
+
+
+/// Delete board by id
 /// 
 ///
-/// @param dockId UUID of dock
+/// @param boardId UUID of board
 /// 
 ///  code:204 message:"Ok",
 ///  code:500 message:"Server internal error"
 ///
 /// @return void
--(NSURLSessionTask*) docksDockIdDeleteWithDockId: (NSString*) dockId
+-(NSURLSessionTask*) boardsBoardIdDeleteWithBoardId: (NSString*) boardId
     completionHandler: (void (^)(NSError* error)) handler;
 
 
-/// Get dock by id
+/// Get board by id
 /// 
 ///
-/// @param dockId UUID of dock
+/// @param boardId UUID of board
 /// 
 ///  code:200 message:"Ok",
 ///  code:500 message:"Server internal error"
 ///
-/// @return OAIDock*
--(NSURLSessionTask*) docksDockIdGetWithDockId: (NSString*) dockId
-    completionHandler: (void (^)(OAIDock* output, NSError* error)) handler;
+/// @return OAIBoard*
+-(NSURLSessionTask*) boardsBoardIdGetWithBoardId: (NSString*) boardId
+    completionHandler: (void (^)(OAIBoard* output, NSError* error)) handler;
 
 
-/// Get notes for dock
+/// Get notes for board
 /// 
 ///
 /// 
@@ -102,11 +116,11 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 ///  code:500 message:"Server internal error"
 ///
 /// @return OAINotes*
--(NSURLSessionTask*) docksDockIdNotesGetWithCompletionHandler: 
+-(NSURLSessionTask*) boardsBoardIdNotesGetWithCompletionHandler: 
     (void (^)(OAINotes* output, NSError* error)) handler;
 
 
-/// Create new note on dock
+/// Create new note on board
 /// 
 ///
 /// @param note  (optional)
@@ -115,51 +129,52 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 ///  code:500 message:"Server internal error"
 ///
 /// @return OAINote*
--(NSURLSessionTask*) docksDockIdNotesPostWithNote: (OAINote*) note
+-(NSURLSessionTask*) boardsBoardIdNotesPostWithNote: (OAINote*) note
     completionHandler: (void (^)(OAINote* output, NSError* error)) handler;
 
 
-/// Replace dock
-/// Update dock description 
+/// Replace board
+/// Update board description 
 ///
-/// @param dockId UUID of dock
-/// @param dock  (optional)
+/// @param boardId UUID of board
+/// @param board  (optional)
 /// 
 ///  code:200 message:"Ok",
 ///  code:500 message:"Server internal error"
 ///
-/// @return OAIDock*
--(NSURLSessionTask*) docksDockIdPutWithDockId: (NSString*) dockId
-    dock: (OAIDock*) dock
-    completionHandler: (void (^)(OAIDock* output, NSError* error)) handler;
+/// @return OAIBoard*
+-(NSURLSessionTask*) boardsBoardIdPutWithBoardId: (NSString*) boardId
+    board: (OAIBoard*) board
+    completionHandler: (void (^)(OAIBoard* output, NSError* error)) handler;
 
 
-/// Get user docks
-/// Gets all docks for current user 
+/// Get user boards
+/// Gets all boards for current user 
 ///
+/// @param userId Google ClientID token
 /// 
 ///  code:200 message:"Ok",
 ///  code:500 message:"Server internal error"
 ///
-/// @return OAIDocks*
--(NSURLSessionTask*) docksGetWithCompletionHandler: 
-    (void (^)(OAIDocks* output, NSError* error)) handler;
+/// @return OAIBoards*
+-(NSURLSessionTask*) boardsGetWithUserId: (NSString*) userId
+    completionHandler: (void (^)(OAIBoards* output, NSError* error)) handler;
 
 
-/// Create new dock
-/// Create new dock for current user 
+/// Create new board
+/// Create new board for current user 
 ///
-/// @param dock  (optional)
+/// @param board  (optional)
 /// 
 ///  code:201 message:"Ok",
 ///  code:500 message:"Server internal error"
 ///
-/// @return OAIDock*
--(NSURLSessionTask*) docksPostWithDock: (OAIDock*) dock
-    completionHandler: (void (^)(OAIDock* output, NSError* error)) handler;
+/// @return OAIBoard*
+-(NSURLSessionTask*) boardsPostWithBoard: (OAIBoard*) board
+    completionHandler: (void (^)(OAIBoard* output, NSError* error)) handler;
 
 
-/// Delete dock by id
+/// Delete note by id
 /// 
 ///
 /// @param noteId UUID of note
@@ -189,15 +204,32 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 /// 
 ///
 /// @param noteId UUID of note
-/// @param body  (optional)
+/// @param noteUpdate  (optional)
 /// 
 ///  code:200 message:"Ok",
 ///  code:500 message:"Server internal error"
 ///
-/// @return OAIDock*
+/// @return OAIBoard*
 -(NSURLSessionTask*) notesNoteIdPatchWithNoteId: (NSString*) noteId
-    body: (OAIBody*) body
-    completionHandler: (void (^)(OAIDock* output, NSError* error)) handler;
+    noteUpdate: (OAINoteUpdate*) noteUpdate
+    completionHandler: (void (^)(OAIBoard* output, NSError* error)) handler;
+
+
+/// Search notes by related text
+/// 
+///
+/// @param text 
+/// @param limit text to be searched in notes (optional) (default to @10)
+/// @param asc should notes be returned in descending(default) or ascending order. (optional) (default to @(NO))
+/// 
+///  code:200 message:"Notes ordered by creation date",
+///  code:500 message:"Server internal error"
+///
+/// @return OAINotes*
+-(NSURLSessionTask*) searchNotesGetWithText: (NSString*) text
+    limit: (NSNumber*) limit
+    asc: (NSNumber*) asc
+    completionHandler: (void (^)(OAINotes* output, NSError* error)) handler;
 
 
 

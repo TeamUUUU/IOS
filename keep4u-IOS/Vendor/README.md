@@ -43,11 +43,12 @@ Import the following:
 // load models
 #import <OpenAPIClient/OAIAttachment.h>
 #import <OpenAPIClient/OAIAttachments.h>
-#import <OpenAPIClient/OAIBody.h>
-#import <OpenAPIClient/OAIDock.h>
-#import <OpenAPIClient/OAIDocks.h>
+#import <OpenAPIClient/OAIBoard.h>
+#import <OpenAPIClient/OAIBoards.h>
+#import <OpenAPIClient/OAICollaboration.h>
 #import <OpenAPIClient/OAIError.h>
 #import <OpenAPIClient/OAINote.h>
+#import <OpenAPIClient/OAINoteUpdate.h>
 #import <OpenAPIClient/OAINotes.h>
 // load API classes for accessing endpoints
 #import <OpenAPIClient/OAIDefaultApi.h>
@@ -81,34 +82,37 @@ OAIDefaultApi *apiInstance = [[OAIDefaultApi alloc] init];
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *http://188.246.233.13:8080*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *OAIDefaultApi* | [**attachmentsAttachmentIdDelete**](docs/OAIDefaultApi.md#attachmentsattachmentiddelete) | **DELETE** /attachments/{attachment_id} | Delete attachment info by id
 *OAIDefaultApi* | [**attachmentsAttachmentIdGet**](docs/OAIDefaultApi.md#attachmentsattachmentidget) | **GET** /attachments/{attachment_id} | Get attachment info by id
 *OAIDefaultApi* | [**attachmentsPost**](docs/OAIDefaultApi.md#attachmentspost) | **POST** /attachments | Upload attachment to server
-*OAIDefaultApi* | [**docksDockIdDelete**](docs/OAIDefaultApi.md#docksdockiddelete) | **DELETE** /docks/{dock_id} | Delete dock by id
-*OAIDefaultApi* | [**docksDockIdGet**](docs/OAIDefaultApi.md#docksdockidget) | **GET** /docks/{dock_id} | Get dock by id
-*OAIDefaultApi* | [**docksDockIdNotesGet**](docs/OAIDefaultApi.md#docksdockidnotesget) | **GET** /docks/{dock_id}/notes | Get notes for dock
-*OAIDefaultApi* | [**docksDockIdNotesPost**](docs/OAIDefaultApi.md#docksdockidnotespost) | **POST** /docks/{dock_id}/notes | Create new note on dock
-*OAIDefaultApi* | [**docksDockIdPut**](docs/OAIDefaultApi.md#docksdockidput) | **PUT** /docks/{dock_id} | Replace dock
-*OAIDefaultApi* | [**docksGet**](docs/OAIDefaultApi.md#docksget) | **GET** /docks | Get user docks
-*OAIDefaultApi* | [**docksPost**](docs/OAIDefaultApi.md#dockspost) | **POST** /docks | Create new dock
-*OAIDefaultApi* | [**notesNoteIdDelete**](docs/OAIDefaultApi.md#notesnoteiddelete) | **DELETE** /notes/{note_id} | Delete dock by id
+*OAIDefaultApi* | [**boardsBoardIdCollaboratorsPatch**](docs/OAIDefaultApi.md#boardsboardidcollaboratorspatch) | **PATCH** /boards/{board_id}/collaborators | 
+*OAIDefaultApi* | [**boardsBoardIdDelete**](docs/OAIDefaultApi.md#boardsboardiddelete) | **DELETE** /boards/{board_id} | Delete board by id
+*OAIDefaultApi* | [**boardsBoardIdGet**](docs/OAIDefaultApi.md#boardsboardidget) | **GET** /boards/{board_id} | Get board by id
+*OAIDefaultApi* | [**boardsBoardIdNotesGet**](docs/OAIDefaultApi.md#boardsboardidnotesget) | **GET** /boards/{board_id}/notes | Get notes for board
+*OAIDefaultApi* | [**boardsBoardIdNotesPost**](docs/OAIDefaultApi.md#boardsboardidnotespost) | **POST** /boards/{board_id}/notes | Create new note on board
+*OAIDefaultApi* | [**boardsBoardIdPut**](docs/OAIDefaultApi.md#boardsboardidput) | **PUT** /boards/{board_id} | Replace board
+*OAIDefaultApi* | [**boardsGet**](docs/OAIDefaultApi.md#boardsget) | **GET** /boards | Get user boards
+*OAIDefaultApi* | [**boardsPost**](docs/OAIDefaultApi.md#boardspost) | **POST** /boards | Create new board
+*OAIDefaultApi* | [**notesNoteIdDelete**](docs/OAIDefaultApi.md#notesnoteiddelete) | **DELETE** /notes/{note_id} | Delete note by id
 *OAIDefaultApi* | [**notesNoteIdGet**](docs/OAIDefaultApi.md#notesnoteidget) | **GET** /notes/{note_id} | Get note by id
 *OAIDefaultApi* | [**notesNoteIdPatch**](docs/OAIDefaultApi.md#notesnoteidpatch) | **PATCH** /notes/{note_id} | Update note content
+*OAIDefaultApi* | [**searchNotesGet**](docs/OAIDefaultApi.md#searchnotesget) | **GET** /search/notes | Search notes by related text
 
 
 ## Documentation For Models
 
  - [OAIAttachment](docs/OAIAttachment.md)
  - [OAIAttachments](docs/OAIAttachments.md)
- - [OAIBody](docs/OAIBody.md)
- - [OAIDock](docs/OAIDock.md)
- - [OAIDocks](docs/OAIDocks.md)
+ - [OAIBoard](docs/OAIBoard.md)
+ - [OAIBoards](docs/OAIBoards.md)
+ - [OAICollaboration](docs/OAICollaboration.md)
  - [OAIError](docs/OAIError.md)
  - [OAINote](docs/OAINote.md)
+ - [OAINoteUpdate](docs/OAINoteUpdate.md)
  - [OAINotes](docs/OAINotes.md)
 
 
