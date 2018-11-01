@@ -67,14 +67,20 @@ NSInteger const OAIUnknownResponseObjectErrorCode = 143528;
         return data;
     }
     id jsonData = nil;
-    if([data isKindOfClass:[NSData class]]) {
+    if([data isKindOfClass:[NSData class]])
+    {
         jsonData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:error];
-    } else {
+    }
+    else
+    {
         jsonData = data;
     }
-    if(!jsonData) {
+    if(!jsonData)
+    {
         jsonData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    } else if([jsonData isKindOfClass:[NSNull class]]) {
+    }
+    else if([jsonData isKindOfClass:[NSNull class]])
+    {
         return nil;
     }
 
@@ -88,18 +94,24 @@ NSInteger const OAIUnknownResponseObjectErrorCode = 143528;
         return [self deserializePrimitiveValue:jsonData class:className error:error];
     }
 
+    if ([@[@"OAIBoards", @"OAIDocks", @"OAIAttachments", @"OAINotes"] containsObject:className])
+        className = [NSString stringWithFormat:@"NSArray<%@>",  [className substringToIndex:className.length - (className.length > 0)]];
+    
     NSTextCheckingResult *match = nil;
     NSRange range = NSMakeRange(0, [className length]);
     // list of models
+    
     match = [self.arrayOfModelsPatExpression firstMatchInString:className options:0 range:range];
-    if (match) {
+    if (match)
+    {
         NSString *innerType = [className substringWithRange:[match rangeAtIndex:1]];
         return [self deserializeArrayValue:jsonData innerType:innerType error:error];
     }
 
     // list of primitives
     match = [self.arrayOfPrimitivesPatExpression firstMatchInString:className options:0 range:range];
-    if (match) {
+    if (match)
+    {
         NSString *innerType = [className substringWithRange:[match rangeAtIndex:1]];
         return [self deserializeArrayValue:jsonData innerType:innerType error:error];
     }
@@ -119,7 +131,9 @@ NSInteger const OAIUnknownResponseObjectErrorCode = 143528;
 
     // model
     Class ModelClass = NSClassFromString(className);
-    if ([ModelClass instancesRespondToSelector:@selector(initWithDictionary:error:)]) {
+//    initWithDictionary:(NSDictionary *)dict error:(NSError **)err
+    if ([ModelClass instancesRespondToSelector:@selector(initWithDictionary:error:)])
+    {
         return [(JSONModel *) [ModelClass alloc] initWithDictionary:jsonData error:error];
     }
 
@@ -158,7 +172,8 @@ NSInteger const OAIUnknownResponseObjectErrorCode = 143528;
     return resultDict;
 }
 
-- (id) deserializeArrayValue:(id) data innerType:(NSString *) innerType error:(NSError**)error {
+- (id) deserializeArrayValue:(id) data innerType:(NSString *) innerType error:(NSError**)error
+{
     if(![data isKindOfClass: [NSArray class]]) {
         if(error) {
             *error = [self typeMismatchErrorWithExpectedType:NSStringFromClass([NSArray class]) data:data];
@@ -238,7 +253,8 @@ NSInteger const OAIUnknownResponseObjectErrorCode = 143528;
     return [NSError errorWithDomain:OAIDeserializationErrorDomainKey code:OAIEmptyValueOccurredErrorCode userInfo:userInfo];
 }
 
--(NSError *)unknownResponseErrorWithExpectedType:(NSString *)expected data:(id)data  {
+-(NSError *)unknownResponseErrorWithExpectedType:(NSString *)expected data:(id)data
+{
     NSString * message = [NSString stringWithFormat:NSLocalizedString(@"Unknown response expected type %@ [response: %@]",nil),expected,data];
     NSDictionary * userInfo = @{NSLocalizedDescriptionKey : message};
     return [NSError errorWithDomain:OAIDeserializationErrorDomainKey code:OAIUnknownResponseObjectErrorCode userInfo:userInfo];

@@ -35,7 +35,7 @@
 @property(nonatomic) NSString* _description;
 /* Id of board owner [optional]
  */
-@property(nonatomic) NSString* owner;
+@property(nonatomic) NSString* ownerId;
 
 @property(nonatomic) OAICollaboration* collaboration;
 
