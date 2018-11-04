@@ -11,6 +11,8 @@
 		CC46AC63218863FC00F3D50A /* RightMenuNavigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC46AC62218863FC00F3D50A /* RightMenuNavigation.storyboard */; };
 		CC46AC65218866CA00F3D50A /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC46AC64218866CA00F3D50A /* NavController.swift */; };
 		CC46AC672188688100F3D50A /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC46AC662188688100F3D50A /* CollectionViewController.swift */; };
+		CC88055A218B41080011E2FF /* BoardsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC880559218B41080011E2FF /* BoardsListTableViewController.swift */; };
+		CC88055D218B49FB0011E2FF /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC88055B218B49FB0011E2FF /* TableViewCell.swift */; };
 		CC88C2762182016100B57912 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC88C2752182016100B57912 /* AppDelegate.m */; };
 		CC88C27C2182016100B57912 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC88C27A2182016100B57912 /* Main.storyboard */; };
 		CC88C27E2182016500B57912 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC88C27D2182016500B57912 /* Assets.xcassets */; };
@@ -29,6 +31,8 @@
 		CC46AC62218863FC00F3D50A /* RightMenuNavigation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RightMenuNavigation.storyboard; sourceTree = "<group>"; };
 		CC46AC64218866CA00F3D50A /* NavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavController.swift; sourceTree = "<group>"; };
 		CC46AC662188688100F3D50A /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		CC880559218B41080011E2FF /* BoardsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardsListTableViewController.swift; sourceTree = "<group>"; };
+		CC88055B218B49FB0011E2FF /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		CC88C2712182016100B57912 /* keep4u-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "keep4u-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC88C2742182016100B57912 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CC88C2752182016100B57912 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -110,6 +114,8 @@
 				CC46AC602188634600F3D50A /* LeftMenuNavigation.storyboard */,
 				CC46AC64218866CA00F3D50A /* NavController.swift */,
 				CC46AC662188688100F3D50A /* CollectionViewController.swift */,
+				CC880559218B41080011E2FF /* BoardsListTableViewController.swift */,
+				CC88055B218B49FB0011E2FF /* TableViewCell.swift */,
 			);
 			path = "keep4u-IOS";
 			sourceTree = "<group>";
@@ -259,6 +265,8 @@
 				CC88C2842182016500B57912 /* main.m in Sources */,
 				CCE852B2218847D800DB57CE /* ViewController.m in Sources */,
 				CC88C2762182016100B57912 /* AppDelegate.m in Sources */,
+				CC88055A218B41080011E2FF /* BoardsListTableViewController.swift in Sources */,
+				CC88055D218B49FB0011E2FF /* TableViewCell.swift in Sources */,
 				CC46AC672188688100F3D50A /* CollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,12 +17,10 @@
 
 
 
-@protocol OAIBody
+@protocol OAICollaborators
 @end
 
-@interface OAIBody : OAIObject
+@interface OAICollaborators : NSMutableArray
 
-
-@property(nonatomic) NSURL* file;
 
 @end

@@ -2,7 +2,7 @@
 #import "OAIAttachment.h"
 #import "OAIBoard.h"
 #import "OAIBoards.h"
-#import "OAICollaboration.h"
+#import "OAICollaborators.h"
 #import "OAIError.h"
 #import "OAINote.h"
 #import "OAINoteUpdate.h"
@@ -59,13 +59,13 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 /// Upload attachment to server
 /// 
 ///
-/// @param body  (optional)
+/// @param file  (optional)
 /// 
 ///  code:201 message:"Ok",
 ///  code:500 message:"Server internal error"
 ///
 /// @return OAIAttachment*
--(NSURLSessionTask*) attachmentsPostWithBody: (NSURL*) body
+-(NSURLSessionTask*) attachmentsPostWithFile: (NSURL*) file
     completionHandler: (void (^)(OAIAttachment* output, NSError* error)) handler;
 
 
@@ -75,11 +75,12 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 /// @param requestBody  (optional)
 /// 
 ///  code:200 message:"Collaborators was successfully added",
+///  code:400 message:"Some of the request parameters is invalid",
 ///  code:404 message:"Board not found"
 ///
-/// @return OAICollaboration*
+/// @return OAICollaborators*
 -(NSURLSessionTask*) boardsBoardIdCollaboratorsPatchWithRequestBody: (NSArray<NSString*>*) requestBody
-    completionHandler: (void (^)(OAICollaboration* output, NSError* error)) handler;
+    completionHandler: (void (^)(OAICollaborators* output, NSError* error)) handler;
 
 
 /// Delete board by id
@@ -133,8 +134,8 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
     completionHandler: (void (^)(OAINote* output, NSError* error)) handler;
 
 
-/// Replace board
-/// Update board description 
+/// Update board parameters
+/// Update board parameters. Note: collaborators array will be replaced by this method. Use /boards/{board_id}/collaborators if you want to append collaborators to board. 
 ///
 /// @param boardId UUID of board
 /// @param board  (optional)
@@ -143,7 +144,7 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 ///  code:500 message:"Server internal error"
 ///
 /// @return OAIBoard*
--(NSURLSessionTask*) boardsBoardIdPutWithBoardId: (NSString*) boardId
+-(NSURLSessionTask*) boardsBoardIdPatchWithBoardId: (NSString*) boardId
     board: (OAIBoard*) board
     completionHandler: (void (^)(OAIBoard* output, NSError* error)) handler;
 
@@ -209,10 +210,10 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 ///  code:200 message:"Ok",
 ///  code:500 message:"Server internal error"
 ///
-/// @return OAIBoard*
+/// @return OAINote*
 -(NSURLSessionTask*) notesNoteIdPatchWithNoteId: (NSString*) noteId
     noteUpdate: (OAINoteUpdate*) noteUpdate
-    completionHandler: (void (^)(OAIBoard* output, NSError* error)) handler;
+    completionHandler: (void (^)(OAINote* output, NSError* error)) handler;
 
 
 /// Search notes by related text

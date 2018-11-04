@@ -4,7 +4,7 @@
 #import "OAIAttachment.h"
 #import "OAIBoard.h"
 #import "OAIBoards.h"
-#import "OAICollaboration.h"
+#import "OAICollaborators.h"
 #import "OAIError.h"
 #import "OAINote.h"
 #import "OAINoteUpdate.h"
@@ -195,11 +195,11 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 /// Upload attachment to server
 /// 
-///  @param body  (optional)
+///  @param file  (optional)
 ///
 ///  @returns OAIAttachment*
 ///
--(NSURLSessionTask*) attachmentsPostWithBody: (NSURL*) body
+-(NSURLSessionTask*) attachmentsPostWithFile: (NSURL*) file
     completionHandler: (void (^)(OAIAttachment* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/attachments"];
 
@@ -218,7 +218,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/octet-stream"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"multipart/form-data"]];
 
     // Authentication setting
     NSArray *authSettings = @[];
@@ -226,7 +226,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = body;
+    localVarFiles[@"file"] = file;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"
@@ -252,10 +252,10 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 /// Adds collaborators to board. Returns all board's collaborators.
 ///  @param requestBody  (optional)
 ///
-///  @returns OAICollaboration*
+///  @returns OAICollaborators*
 ///
 -(NSURLSessionTask*) boardsBoardIdCollaboratorsPatchWithRequestBody: (NSArray<NSString*>*) requestBody
-    completionHandler: (void (^)(OAICollaboration* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAICollaborators* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/boards/{board_id}/collaborators"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
@@ -294,10 +294,10 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAICollaboration*"
+                              responseType: @"OAICollaborators*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAICollaboration*)data, error);
+                                    handler((OAICollaborators*)data, error);
                                 }
                             }];
 }
@@ -546,15 +546,15 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 }
 
 ///
-/// Replace board
-/// Update board description 
+/// Update board parameters
+/// Update board parameters. Note: collaborators array will be replaced by this method. Use /boards/{board_id}/collaborators if you want to append collaborators to board. 
 ///  @param boardId UUID of board 
 ///
 ///  @param board  (optional)
 ///
 ///  @returns OAIBoard*
 ///
--(NSURLSessionTask*) boardsBoardIdPutWithBoardId: (NSString*) boardId
+-(NSURLSessionTask*) boardsBoardIdPatchWithBoardId: (NSString*) boardId
     board: (OAIBoard*) board
     completionHandler: (void (^)(OAIBoard* output, NSError* error)) handler {
     // verify the required parameter 'boardId' is set
@@ -599,7 +599,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     bodyParam = board;
 
     return [self.apiClient requestWithPath: resourcePath
-                                    method: @"PUT"
+                                    method: @"PATCH"
                                 pathParams: pathParams
                                queryParams: queryParams
                                 formParams: formParams
@@ -883,11 +883,11 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 ///  @param noteUpdate  (optional)
 ///
-///  @returns OAIBoard*
+///  @returns OAINote*
 ///
 -(NSURLSessionTask*) notesNoteIdPatchWithNoteId: (NSString*) noteId
     noteUpdate: (OAINoteUpdate*) noteUpdate
-    completionHandler: (void (^)(OAIBoard* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAINote* output, NSError* error)) handler {
     // verify the required parameter 'noteId' is set
     if (noteId == nil) {
         NSParameterAssert(noteId);
@@ -940,10 +940,10 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIBoard*"
+                              responseType: @"OAINote*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIBoard*)data, error);
+                                    handler((OAINote*)data, error);
                                 }
                             }];
 }

@@ -14,9 +14,9 @@
 */
 
 
-#import "OAICollaboration.h"
-@protocol OAICollaboration;
-@class OAICollaboration;
+#import "OAICollaborators.h"
+@protocol OAICollaborators;
+@class OAICollaborators;
 
 
 
@@ -33,10 +33,13 @@
 @property(nonatomic) NSString* title;
 
 @property(nonatomic) NSString* _description;
-/* Id of board owner [optional]
+/* Board creation unix timestamp 
  */
-@property(nonatomic) NSString* ownerId;
+@property(nonatomic) NSNumber* createdAt;
+/* Board last update unix timestamp [optional]
+ */
+@property(nonatomic) NSNumber* changedAt;
 
-@property(nonatomic) OAICollaboration* collaboration;
+@property(nonatomic) OAICollaborators* collaborators;
 
 @end

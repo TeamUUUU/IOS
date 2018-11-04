@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**boardsBoardIdGet**](OAIDefaultApi.md#boardsboardidget) | **GET** /boards/{board_id} | Get board by id
 [**boardsBoardIdNotesGet**](OAIDefaultApi.md#boardsboardidnotesget) | **GET** /boards/{board_id}/notes | Get notes for board
 [**boardsBoardIdNotesPost**](OAIDefaultApi.md#boardsboardidnotespost) | **POST** /boards/{board_id}/notes | Create new note on board
-[**boardsBoardIdPut**](OAIDefaultApi.md#boardsboardidput) | **PUT** /boards/{board_id} | Replace board
+[**boardsBoardIdPatch**](OAIDefaultApi.md#boardsboardidpatch) | **PATCH** /boards/{board_id} | Update board parameters
 [**boardsGet**](OAIDefaultApi.md#boardsget) | **GET** /boards | Get user boards
 [**boardsPost**](OAIDefaultApi.md#boardspost) | **POST** /boards | Create new board
 [**notesNoteIdDelete**](OAIDefaultApi.md#notesnoteiddelete) | **DELETE** /notes/{note_id} | Delete note by id
@@ -116,7 +116,7 @@ No authorization required
 
 # **attachmentsPost**
 ```objc
--(NSURLSessionTask*) attachmentsPostWithBody: (NSURL*) body
+-(NSURLSessionTask*) attachmentsPostWithFile: (NSURL*) file
         completionHandler: (void (^)(OAIAttachment* output, NSError* error)) handler;
 ```
 
@@ -125,12 +125,12 @@ Upload attachment to server
 ### Example 
 ```objc
 
-NSURL* body = [NSURL fileURLWithPath:@"/path/to/file"]; //  (optional)
+NSURL* file = [NSURL fileURLWithPath:@"/path/to/file"]; //  (optional)
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 // Upload attachment to server
-[apiInstance attachmentsPostWithBody:body
+[apiInstance attachmentsPostWithFile:file
           completionHandler: ^(OAIAttachment* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -145,7 +145,7 @@ OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **NSURL*****NSURL***|  | [optional] 
+ **file** | **NSURL*****NSURL***|  | [optional] 
 
 ### Return type
 
@@ -157,7 +157,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/octet-stream
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -165,7 +165,7 @@ No authorization required
 # **boardsBoardIdCollaboratorsPatch**
 ```objc
 -(NSURLSessionTask*) boardsBoardIdCollaboratorsPatchWithRequestBody: (NSArray<NSString*>*) requestBody
-        completionHandler: (void (^)(OAICollaboration* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAICollaborators* output, NSError* error)) handler;
 ```
 
 
@@ -180,7 +180,7 @@ NSArray<NSString*>* requestBody = @[[[NSArray alloc] init]]; //  (optional)
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 [apiInstance boardsBoardIdCollaboratorsPatchWithRequestBody:requestBody
-          completionHandler: ^(OAICollaboration* output, NSError* error) {
+          completionHandler: ^(OAICollaborators* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -198,7 +198,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAICollaboration***](OAICollaboration.md)
+[**OAICollaborators***](OAICollaborators.md)
 
 ### Authorization
 
@@ -396,16 +396,16 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **boardsBoardIdPut**
+# **boardsBoardIdPatch**
 ```objc
--(NSURLSessionTask*) boardsBoardIdPutWithBoardId: (NSString*) boardId
+-(NSURLSessionTask*) boardsBoardIdPatchWithBoardId: (NSString*) boardId
     board: (OAIBoard*) board
         completionHandler: (void (^)(OAIBoard* output, NSError* error)) handler;
 ```
 
-Replace board
+Update board parameters
 
-Update board description 
+Update board parameters. Note: collaborators array will be replaced by this method. Use /boards/{board_id}/collaborators if you want to append collaborators to board. 
 
 ### Example 
 ```objc
@@ -415,15 +415,15 @@ OAIBoard* board = [[OAIBoard alloc] init]; //  (optional)
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
-// Replace board
-[apiInstance boardsBoardIdPutWithBoardId:boardId
+// Update board parameters
+[apiInstance boardsBoardIdPatchWithBoardId:boardId
               board:board
           completionHandler: ^(OAIBoard* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
                         if (error) {
-                            NSLog(@"Error calling OAIDefaultApi->boardsBoardIdPut: %@", error);
+                            NSLog(@"Error calling OAIDefaultApi->boardsBoardIdPatch: %@", error);
                         }
                     }];
 ```
@@ -647,7 +647,7 @@ No authorization required
 ```objc
 -(NSURLSessionTask*) notesNoteIdPatchWithNoteId: (NSString*) noteId
     noteUpdate: (OAINoteUpdate*) noteUpdate
-        completionHandler: (void (^)(OAIBoard* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAINote* output, NSError* error)) handler;
 ```
 
 Update note content
@@ -663,7 +663,7 @@ OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 // Update note content
 [apiInstance notesNoteIdPatchWithNoteId:noteId
               noteUpdate:noteUpdate
-          completionHandler: ^(OAIBoard* output, NSError* error) {
+          completionHandler: ^(OAINote* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -682,7 +682,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIBoard***](OAIBoard.md)
+[**OAINote***](OAINote.md)
 
 ### Authorization
 

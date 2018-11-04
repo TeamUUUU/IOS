@@ -17,12 +17,19 @@
 
 
 
-@protocol OAIBody
+@protocol OAIBoardUpdate
 @end
 
-@interface OAIBody : OAIObject
+@interface OAIBoardUpdate : OAIObject
 
-
-@property(nonatomic) NSURL* file;
+/* New board title [optional]
+ */
+@property(nonatomic) NSString* title;
+/* New board description [optional]
+ */
+@property(nonatomic) NSString* _description;
+/* New board collaborators [optional]
+ */
+@property(nonatomic) NSString* collaborators;
 
 @end

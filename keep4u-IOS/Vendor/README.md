@@ -44,8 +44,10 @@ Import the following:
 #import <OpenAPIClient/OAIAttachment.h>
 #import <OpenAPIClient/OAIAttachments.h>
 #import <OpenAPIClient/OAIBoard.h>
+#import <OpenAPIClient/OAIBoardUpdate.h>
 #import <OpenAPIClient/OAIBoards.h>
-#import <OpenAPIClient/OAICollaboration.h>
+#import <OpenAPIClient/OAIBody.h>
+#import <OpenAPIClient/OAICollaborators.h>
 #import <OpenAPIClient/OAIError.h>
 #import <OpenAPIClient/OAINote.h>
 #import <OpenAPIClient/OAINoteUpdate.h>
@@ -94,7 +96,7 @@ Class | Method | HTTP request | Description
 *OAIDefaultApi* | [**boardsBoardIdGet**](docs/OAIDefaultApi.md#boardsboardidget) | **GET** /boards/{board_id} | Get board by id
 *OAIDefaultApi* | [**boardsBoardIdNotesGet**](docs/OAIDefaultApi.md#boardsboardidnotesget) | **GET** /boards/{board_id}/notes | Get notes for board
 *OAIDefaultApi* | [**boardsBoardIdNotesPost**](docs/OAIDefaultApi.md#boardsboardidnotespost) | **POST** /boards/{board_id}/notes | Create new note on board
-*OAIDefaultApi* | [**boardsBoardIdPut**](docs/OAIDefaultApi.md#boardsboardidput) | **PUT** /boards/{board_id} | Replace board
+*OAIDefaultApi* | [**boardsBoardIdPatch**](docs/OAIDefaultApi.md#boardsboardidpatch) | **PATCH** /boards/{board_id} | Update board parameters
 *OAIDefaultApi* | [**boardsGet**](docs/OAIDefaultApi.md#boardsget) | **GET** /boards | Get user boards
 *OAIDefaultApi* | [**boardsPost**](docs/OAIDefaultApi.md#boardspost) | **POST** /boards | Create new board
 *OAIDefaultApi* | [**notesNoteIdDelete**](docs/OAIDefaultApi.md#notesnoteiddelete) | **DELETE** /notes/{note_id} | Delete note by id
@@ -108,8 +110,10 @@ Class | Method | HTTP request | Description
  - [OAIAttachment](docs/OAIAttachment.md)
  - [OAIAttachments](docs/OAIAttachments.md)
  - [OAIBoard](docs/OAIBoard.md)
+ - [OAIBoardUpdate](docs/OAIBoardUpdate.md)
  - [OAIBoards](docs/OAIBoards.md)
- - [OAICollaboration](docs/OAICollaboration.md)
+ - [OAIBody](docs/OAIBody.md)
+ - [OAICollaborators](docs/OAICollaborators.md)
  - [OAIError](docs/OAIError.md)
  - [OAINote](docs/OAINote.md)
  - [OAINoteUpdate](docs/OAINoteUpdate.md)

@@ -40,6 +40,9 @@
 /* Note creation unix timestamp [optional]
  */
 @property(nonatomic) NSNumber* createdAt;
+/* Note last update unix timestamp [optional]
+ */
+@property(nonatomic) NSNumber* changedAt;
 
 @property(nonatomic) OAIAttachments* attachments;
 

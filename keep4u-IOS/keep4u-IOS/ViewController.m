@@ -21,37 +21,37 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    OAIBoard* board = [[OAIBoard alloc] init]; //  (optional)
-//    board._id = @"666";
-    board.title = @"wft";
-    board._description = @"amidoing";
-    board.ownerId = @"userId_example";
-    
-    OAIDefaultApi* apiInstance = [[OAIDefaultApi alloc] init];
+//    OAIBoard* board = [[OAIBoard alloc] init]; //  (optional)
+////    board._id = @"666";
+//    board.title = @"wft";
+//    board._description = @"amidoing";
+//    board.ownerId = @"userId_example";
+//
+//    OAIDefaultApi* apiInstance = [[OAIDefaultApi alloc] init];
     
     // Create new board
-    [apiInstance boardsPostWithBoard:board
-                   completionHandler: ^(OAIBoard* output, NSError* error) {
-                       if (output) {
-                           NSLog(@"%@", output);
-                       }
-                       if (error) {
-                           NSLog(@"Error calling OAIDefaultApi->boardsPost: %@", error);
-                       }
-                   }];
+//    [apiInstance boardsPostWithBoard:board
+//                   completionHandler: ^(OAIBoard* output, NSError* error) {
+//                       if (output) {
+//                           NSLog(@"%@", output);
+//                       }
+//                       if (error) {
+//                           NSLog(@"Error calling OAIDefaultApi->boardsPost: %@", error);
+//                       }
+//                   }];
+//    
+//    NSString* userId = @"userId_example"; // Google ClientID token
     
-    NSString* userId = @"userId_example"; // Google ClientID token
-    
-    // Get user boards
-    [apiInstance boardsGetWithUserId:userId
-                   completionHandler: ^(OAIBoards* output, NSError* error) {
-                       if (output) {
-                           NSLog(@"%@", output);
-                       }
-                       if (error) {
-                           NSLog(@"Error calling OAIDefaultApi->boardsGet: %@", error);
-                       }
-                   }];
+//    // Get user boards
+//    [apiInstance boardsGetWithUserId:userId
+//                   completionHandler: ^(OAIBoards* output, NSError* error) {
+//                       if (output) {
+//                           NSLog(@"%@", output);
+//                       }
+//                       if (error) {
+//                           NSLog(@"Error calling OAIDefaultApi->boardsGet: %@", error);
+//                       }
+//                   }];
 
 }
 
