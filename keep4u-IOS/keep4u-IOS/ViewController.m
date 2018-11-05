@@ -21,16 +21,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-//    OAIBoard* board = [[OAIBoard alloc] init]; //  (optional)
+//    OAIBoard* board = [[OAIBoard alloc] init];
 ////    board._id = @"666";
 //    board.title = @"wft";
 //    board._description = @"amidoing";
-//    board.ownerId = @"userId_example";
+//    board._id = @"апарпарапр";
+//    board.createdAt = @((time_t)[NSDate date].timeIntervalSince1970);
 //
 //    OAIDefaultApi* apiInstance = [[OAIDefaultApi alloc] init];
-    
-    // Create new board
-//    [apiInstance boardsPostWithBoard:board
+//    
+//    
+////     Create new board
+//    [apiInstance boardsPostWithUserId:OAIDefaultConfiguration.sharedConfig.username board:board
 //                   completionHandler: ^(OAIBoard* output, NSError* error) {
 //                       if (output) {
 //                           NSLog(@"%@", output);
@@ -39,9 +41,9 @@
 //                           NSLog(@"Error calling OAIDefaultApi->boardsPost: %@", error);
 //                       }
 //                   }];
-//    
-//    NSString* userId = @"userId_example"; // Google ClientID token
     
+//    NSString* userId = @"userId_example"; // Google ClientID token
+//
 //    // Get user boards
 //    [apiInstance boardsGetWithUserId:userId
 //                   completionHandler: ^(OAIBoards* output, NSError* error) {

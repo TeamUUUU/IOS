@@ -165,13 +165,15 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 /// Create new board
 /// Create new board for current user 
 ///
+/// @param userId Google ClientID token
 /// @param board  (optional)
 /// 
 ///  code:201 message:"Ok",
 ///  code:500 message:"Server internal error"
 ///
 /// @return OAIBoard*
--(NSURLSessionTask*) boardsPostWithBoard: (OAIBoard*) board
+-(NSURLSessionTask*) boardsPostWithUserId: (NSString*) userId
+    board: (OAIBoard*) board
     completionHandler: (void (^)(OAIBoard* output, NSError* error)) handler;
 
 

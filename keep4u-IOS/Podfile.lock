@@ -20,10 +20,17 @@ PODS:
     - AFNetworking (~> 3)
     - ISO8601 (~> 0.6)
     - JSONModel (~> 1.2)
+  - RxAtomic (4.4.0)
+  - RxCocoa (4.4.0):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.4.0):
+    - RxAtomic (~> 4.4)
   - SideMenu (5.0.1)
 
 DEPENDENCIES:
   - OpenAPIClient (from `Vendor`)
+  - RxCocoa
+  - RxSwift
   - SideMenu
 
 SPEC REPOS:
@@ -31,6 +38,9 @@ SPEC REPOS:
     - AFNetworking
     - ISO8601
     - JSONModel
+    - RxAtomic
+    - RxCocoa
+    - RxSwift
     - SideMenu
 
 EXTERNAL SOURCES:
@@ -42,8 +52,11 @@ SPEC CHECKSUMS:
   ISO8601: d3ea3ba9b752820cf92c6b47a9ee327e9f0e13fc
   JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
   OpenAPIClient: 0424d5af1aa8f2364de9c89f982383d5e85ca622
+  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
+  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
   SideMenu: 87efd943737bb83aedf0358884d09fcf5576636d
 
-PODFILE CHECKSUM: ab64d3d2eae0213a70524ad92e1ad17c0d781348
+PODFILE CHECKSUM: fe558922ca90a1359bd0e850bacd83013ef58193
 
 COCOAPODS: 1.6.0.beta.2

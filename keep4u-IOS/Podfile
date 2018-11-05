@@ -9,5 +9,7 @@ target 'keep4u-IOS' do
 
   pod 'OpenAPIClient', :path => 'Vendor'
   pod 'SideMenu'
+  pod "RxSwift"
+  pod "RxCocoa"
 
 end

@@ -11,13 +11,15 @@
 		CC46AC63218863FC00F3D50A /* RightMenuNavigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC46AC62218863FC00F3D50A /* RightMenuNavigation.storyboard */; };
 		CC46AC65218866CA00F3D50A /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC46AC64218866CA00F3D50A /* NavController.swift */; };
 		CC46AC672188688100F3D50A /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC46AC662188688100F3D50A /* CollectionViewController.swift */; };
-		CC88055A218B41080011E2FF /* BoardsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC880559218B41080011E2FF /* BoardsListTableViewController.swift */; };
+		CC793CDE218FE6AB004D40EF /* LeftMenuNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC793CDD218FE6AB004D40EF /* LeftMenuNavigation.swift */; };
+		CC793CE0218FF0D4004D40EF /* Boards.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC793CDF218FF0D4004D40EF /* Boards.swift */; };
 		CC88055D218B49FB0011E2FF /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC88055B218B49FB0011E2FF /* TableViewCell.swift */; };
 		CC88C2762182016100B57912 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC88C2752182016100B57912 /* AppDelegate.m */; };
 		CC88C27C2182016100B57912 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC88C27A2182016100B57912 /* Main.storyboard */; };
 		CC88C27E2182016500B57912 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC88C27D2182016500B57912 /* Assets.xcassets */; };
 		CC88C2812182016500B57912 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC88C27F2182016500B57912 /* LaunchScreen.storyboard */; };
 		CC88C2842182016500B57912 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC88C2832182016500B57912 /* main.m */; };
+		CCB7AF45218FBE59005614BC /* AddNewBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB7AF44218FBE59005614BC /* AddNewBoard.swift */; };
 		CCE852B2218847D800DB57CE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE852B1218847D800DB57CE /* ViewController.m */; };
 		CCE852B52188591700DB57CE /* MainRoutine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCE852B42188591600DB57CE /* MainRoutine.storyboard */; };
 		F40776E0AE819843F2A661B1 /* Pods_keep4u_IOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64296A8FC0020313979E1236 /* Pods_keep4u_IOS.framework */; };
@@ -31,7 +33,8 @@
 		CC46AC62218863FC00F3D50A /* RightMenuNavigation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RightMenuNavigation.storyboard; sourceTree = "<group>"; };
 		CC46AC64218866CA00F3D50A /* NavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavController.swift; sourceTree = "<group>"; };
 		CC46AC662188688100F3D50A /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
-		CC880559218B41080011E2FF /* BoardsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardsListTableViewController.swift; sourceTree = "<group>"; };
+		CC793CDD218FE6AB004D40EF /* LeftMenuNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuNavigation.swift; sourceTree = "<group>"; };
+		CC793CDF218FF0D4004D40EF /* Boards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boards.swift; sourceTree = "<group>"; };
 		CC88055B218B49FB0011E2FF /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		CC88C2712182016100B57912 /* keep4u-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "keep4u-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC88C2742182016100B57912 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -42,6 +45,7 @@
 		CC88C2822182016500B57912 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC88C2832182016500B57912 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CC88C28A218207DE00B57912 /* Api.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Api.h; sourceTree = "<group>"; };
+		CCB7AF44218FBE59005614BC /* AddNewBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewBoard.swift; sourceTree = "<group>"; };
 		CCE852AD2188476C00DB57CE /* keep4u-IOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "keep4u-IOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		CCE852B0218847D800DB57CE /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		CCE852B1218847D800DB57CE /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
@@ -114,8 +118,10 @@
 				CC46AC602188634600F3D50A /* LeftMenuNavigation.storyboard */,
 				CC46AC64218866CA00F3D50A /* NavController.swift */,
 				CC46AC662188688100F3D50A /* CollectionViewController.swift */,
-				CC880559218B41080011E2FF /* BoardsListTableViewController.swift */,
 				CC88055B218B49FB0011E2FF /* TableViewCell.swift */,
+				CCB7AF44218FBE59005614BC /* AddNewBoard.swift */,
+				CC793CDD218FE6AB004D40EF /* LeftMenuNavigation.swift */,
+				CC793CDF218FF0D4004D40EF /* Boards.swift */,
 			);
 			path = "keep4u-IOS";
 			sourceTree = "<group>";
@@ -239,6 +245,9 @@
 				"${BUILT_PRODUCTS_DIR}/ISO8601/ISO8601.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework",
 				"${BUILT_PRODUCTS_DIR}/OpenAPIClient/OpenAPIClient.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -247,6 +256,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ISO8601.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONModel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenAPIClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,9 +277,11 @@
 				CC88C2842182016500B57912 /* main.m in Sources */,
 				CCE852B2218847D800DB57CE /* ViewController.m in Sources */,
 				CC88C2762182016100B57912 /* AppDelegate.m in Sources */,
-				CC88055A218B41080011E2FF /* BoardsListTableViewController.swift in Sources */,
+				CC793CDE218FE6AB004D40EF /* LeftMenuNavigation.swift in Sources */,
+				CC793CE0218FF0D4004D40EF /* Boards.swift in Sources */,
 				CC88055D218B49FB0011E2FF /* TableViewCell.swift in Sources */,
 				CC46AC672188688100F3D50A /* CollectionViewController.swift in Sources */,
+				CCB7AF45218FBE59005614BC /* AddNewBoard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

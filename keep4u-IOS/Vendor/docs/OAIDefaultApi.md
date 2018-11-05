@@ -502,7 +502,8 @@ No authorization required
 
 # **boardsPost**
 ```objc
--(NSURLSessionTask*) boardsPostWithBoard: (OAIBoard*) board
+-(NSURLSessionTask*) boardsPostWithUserId: (NSString*) userId
+    board: (OAIBoard*) board
         completionHandler: (void (^)(OAIBoard* output, NSError* error)) handler;
 ```
 
@@ -513,12 +514,14 @@ Create new board for current user
 ### Example 
 ```objc
 
+NSString* userId = @"userId_example"; // Google ClientID token
 OAIBoard* board = [[OAIBoard alloc] init]; //  (optional)
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 // Create new board
-[apiInstance boardsPostWithBoard:board
+[apiInstance boardsPostWithUserId:userId
+              board:board
           completionHandler: ^(OAIBoard* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -533,6 +536,7 @@ OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **userId** | **NSString***| Google ClientID token | 
  **board** | [**OAIBoard***](OAIBoard.md)|  | [optional] 
 
 ### Return type

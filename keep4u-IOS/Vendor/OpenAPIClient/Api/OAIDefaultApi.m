@@ -688,17 +688,34 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 /// Create new board
 /// Create new board for current user 
+///  @param userId Google ClientID token 
+///
 ///  @param board  (optional)
 ///
 ///  @returns OAIBoard*
 ///
--(NSURLSessionTask*) boardsPostWithBoard: (OAIBoard*) board
+-(NSURLSessionTask*) boardsPostWithUserId: (NSString*) userId
+    board: (OAIBoard*) board
     completionHandler: (void (^)(OAIBoard* output, NSError* error)) handler {
+    // verify the required parameter 'userId' is set
+    if (userId == nil) {
+        NSParameterAssert(userId);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"userId"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/boards"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (userId != nil) {
+        queryParams[@"user_id"] = userId;
+    }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
     // HTTP header `Accept`
