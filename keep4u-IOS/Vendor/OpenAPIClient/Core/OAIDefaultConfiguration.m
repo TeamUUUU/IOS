@@ -29,7 +29,7 @@
     self = [super init];
     if (self) {
         _host = @"http://188.246.233.13:8080";
-        _username = @"1";
+        _username = @"some-owner-id";
         _password = @"";
         _accessToken= @"";
         _verifySSL = YES;

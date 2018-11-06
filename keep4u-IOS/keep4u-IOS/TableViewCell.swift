@@ -9,12 +9,7 @@
 import UIKit
 
 class TableViewCell: UITableViewCell
-{
-    @IBAction func titleChanged(_ sender: UITextField)
-    {
-        
-    }
-    
+{    
     @IBOutlet weak var titleText: UITextField!
     
     @IBOutlet weak var descriptionText: UITextField!

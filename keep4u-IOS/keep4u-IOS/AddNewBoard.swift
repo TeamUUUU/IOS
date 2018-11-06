@@ -8,35 +8,71 @@
 
 import UIKit
 
-class AddNewBoard: UIViewController {
+class AddNewBoard: UIViewController
+{
+    @IBOutlet weak var headerBoard: UILabel!
+    
+    @IBOutlet weak var actionButton: UIButton!
+    
+    var board : OAIBoard?
 
     @IBOutlet weak var titleText: UITextField!
     
-    
     @IBOutlet weak var descriptionText: UITextField!
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        if (self.board == nil)
+        {
+            self.headerBoard.text = "Add Board".localized
+            self.actionButton.setTitle("Add".localized, for: UIControl.State.normal)
+        }
+        else if (self.board != nil)
+        {
+            self.headerBoard.text = "Edit Board".localized
+            self.actionButton.setTitle("Save".localized, for: UIControl.State.normal)
+            
+            self.titleText.text = board!.title
+            self.descriptionText.text = board!._description
+        }
     }
     
 
     @IBAction func addBoard(_ sender: Any)
     {
-        let boards = OAIDefaultApi()
+        let api = OAIDefaultApi()
         let user = OAIDefaultConfiguration.sharedConfig()?.username
         
-        let board = OAIBoard()
-        board.title = titleText.text
-        board._description = descriptionText.text
-        board.createdAt = NSDate().timeIntervalSince1970 as NSNumber
-        
-        boards.boardsPost(withUserId: user, board: board, completionHandler: { (board, error) in
-                        assert(board != nil, "Expected board")
-                        assert(error == nil, "Got error")
-                        updateBoards()
-                    })
+        if (self.board == nil)
+        {
+            self.board = OAIBoard()
+            
+            board!.title = titleText.text
+            board!._description = descriptionText.text
+            board!.createdAt = NSDate().timeIntervalSince1970 as NSNumber
+            
+            api.boardsPost(withUserId: user, board: board, completionHandler: { (board, error) in
+                            assert(board != nil, "Expected board")
+                            assert(error == nil, "Got error")
+                            updateBoards()
+                        })
+        }
+        else if (self.board != nil)
+        {
+            board!.title = titleText.text
+            board!._description = descriptionText.text
+            board!.changedAt = NSDate().timeIntervalSince1970 as NSNumber
+            
+//            api.boar
+            
+            api.boardsBoardIdPatch(withBoardId: board!._id, board: board, completionHandler: { (board, error) in
+                assert(board != nil, "Expected board")
+                assert(error == nil, "Got error")
+                updateBoards()
+            })
+        }
         
         dismissPopUp(self)
     }
@@ -45,14 +81,4 @@ class AddNewBoard: UIViewController {
     {
         dismiss(animated: true, completion: nil)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

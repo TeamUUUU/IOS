@@ -16,9 +16,18 @@ public func updateBoards()
     let boards = OAIDefaultApi()
     let user = OAIDefaultConfiguration.sharedConfig()?.username
     
-    boards.boardsGet(withUserId: user, completionHandler: { (boards, error) in
-        assert(boards != nil, "Expected boards")
+    boards.boardsGet(withUserId: user, completionHandler: { (boardsRaw, error) in
+        
         assert(error == nil, "Got error")
+        
+        guard let boards = boardsRaw else {
+            print("\(#function): failed to fetch boards")
+            assert(false, "Expected boards")
+            return
+        }
+        
+        print("boards count: \((boards as! Array<OAIBoard>).count)")
+        print("last board: \(String(describing: (boards as! Array<OAIBoard>).last))")
         
         hotObservable.accept(boards as! Array<OAIBoard>)
     }

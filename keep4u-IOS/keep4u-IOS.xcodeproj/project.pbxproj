@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC3558982191678500FF74E8 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3558972191678500FF74E8 /* Helpers.swift */; };
 		CC46AC612188634600F3D50A /* LeftMenuNavigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC46AC602188634600F3D50A /* LeftMenuNavigation.storyboard */; };
 		CC46AC63218863FC00F3D50A /* RightMenuNavigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC46AC62218863FC00F3D50A /* RightMenuNavigation.storyboard */; };
 		CC46AC65218866CA00F3D50A /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC46AC64218866CA00F3D50A /* NavController.swift */; };
-		CC46AC672188688100F3D50A /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC46AC662188688100F3D50A /* CollectionViewController.swift */; };
 		CC793CDE218FE6AB004D40EF /* LeftMenuNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC793CDD218FE6AB004D40EF /* LeftMenuNavigation.swift */; };
 		CC793CE0218FF0D4004D40EF /* Boards.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC793CDF218FF0D4004D40EF /* Boards.swift */; };
+		CC793CE3218FFC8D004D40EF /* BoardDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC793CE2218FFC8D004D40EF /* BoardDetails.swift */; };
 		CC88055D218B49FB0011E2FF /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC88055B218B49FB0011E2FF /* TableViewCell.swift */; };
 		CC88C2762182016100B57912 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC88C2752182016100B57912 /* AppDelegate.m */; };
 		CC88C27C2182016100B57912 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC88C27A2182016100B57912 /* Main.storyboard */; };
@@ -29,12 +30,13 @@
 		64296A8FC0020313979E1236 /* Pods_keep4u_IOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_keep4u_IOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64CAD7FFA59AFD2C1434FA5E /* Pods-keep4u-IOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-keep4u-IOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-keep4u-IOS/Pods-keep4u-IOS.debug.xcconfig"; sourceTree = "<group>"; };
 		C5140FACE89E06816EE674C4 /* Pods-keep4u-IOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-keep4u-IOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-keep4u-IOS/Pods-keep4u-IOS.release.xcconfig"; sourceTree = "<group>"; };
+		CC3558972191678500FF74E8 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		CC46AC602188634600F3D50A /* LeftMenuNavigation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LeftMenuNavigation.storyboard; sourceTree = "<group>"; };
 		CC46AC62218863FC00F3D50A /* RightMenuNavigation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RightMenuNavigation.storyboard; sourceTree = "<group>"; };
 		CC46AC64218866CA00F3D50A /* NavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavController.swift; sourceTree = "<group>"; };
-		CC46AC662188688100F3D50A /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		CC793CDD218FE6AB004D40EF /* LeftMenuNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuNavigation.swift; sourceTree = "<group>"; };
 		CC793CDF218FF0D4004D40EF /* Boards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boards.swift; sourceTree = "<group>"; };
+		CC793CE2218FFC8D004D40EF /* BoardDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardDetails.swift; sourceTree = "<group>"; };
 		CC88055B218B49FB0011E2FF /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		CC88C2712182016100B57912 /* keep4u-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "keep4u-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC88C2742182016100B57912 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -81,6 +83,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CC793CE1218FF5EA004D40EF /* LeftMenu */ = {
+			isa = PBXGroup;
+			children = (
+				CC46AC602188634600F3D50A /* LeftMenuNavigation.storyboard */,
+				CC793CDD218FE6AB004D40EF /* LeftMenuNavigation.swift */,
+				CC793CE2218FFC8D004D40EF /* BoardDetails.swift */,
+				CC3558972191678500FF74E8 /* Helpers.swift */,
+			);
+			path = LeftMenu;
+			sourceTree = "<group>";
+		};
 		CC88C2682182016100B57912 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +115,7 @@
 		CC88C2732182016100B57912 /* keep4u-IOS */ = {
 			isa = PBXGroup;
 			children = (
+				CC793CE1218FF5EA004D40EF /* LeftMenu */,
 				CCE852B0218847D800DB57CE /* ViewController.h */,
 				CCE852B1218847D800DB57CE /* ViewController.m */,
 				CC88C2742182016100B57912 /* AppDelegate.h */,
@@ -115,12 +129,9 @@
 				CCE852AD2188476C00DB57CE /* keep4u-IOS-Bridging-Header.h */,
 				CCE852B42188591600DB57CE /* MainRoutine.storyboard */,
 				CC46AC62218863FC00F3D50A /* RightMenuNavigation.storyboard */,
-				CC46AC602188634600F3D50A /* LeftMenuNavigation.storyboard */,
 				CC46AC64218866CA00F3D50A /* NavController.swift */,
-				CC46AC662188688100F3D50A /* CollectionViewController.swift */,
 				CC88055B218B49FB0011E2FF /* TableViewCell.swift */,
 				CCB7AF44218FBE59005614BC /* AddNewBoard.swift */,
-				CC793CDD218FE6AB004D40EF /* LeftMenuNavigation.swift */,
 				CC793CDF218FF0D4004D40EF /* Boards.swift */,
 			);
 			path = "keep4u-IOS";
@@ -274,13 +285,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC46AC65218866CA00F3D50A /* NavController.swift in Sources */,
+				CC793CE3218FFC8D004D40EF /* BoardDetails.swift in Sources */,
 				CC88C2842182016500B57912 /* main.m in Sources */,
+				CC3558982191678500FF74E8 /* Helpers.swift in Sources */,
 				CCE852B2218847D800DB57CE /* ViewController.m in Sources */,
 				CC88C2762182016100B57912 /* AppDelegate.m in Sources */,
 				CC793CDE218FE6AB004D40EF /* LeftMenuNavigation.swift in Sources */,
 				CC793CE0218FF0D4004D40EF /* Boards.swift in Sources */,
 				CC88055D218B49FB0011E2FF /* TableViewCell.swift in Sources */,
-				CC46AC672188688100F3D50A /* CollectionViewController.swift in Sources */,
 				CCB7AF45218FBE59005614BC /* AddNewBoard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
