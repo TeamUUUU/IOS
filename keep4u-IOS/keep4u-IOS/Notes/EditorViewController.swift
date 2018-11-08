@@ -28,6 +28,25 @@ class EditorViewController: UIViewController {
 //        owner!.rawData.asObservable().bind(to: self.editorTextView.rx.text).disposed(by: disposeBag)
         
 //        owner?.rawData.value = owner!.note!.content
+        
+        editorTextView.rx.didEndEditing.subscribe( {_ in
+            let api = OAIDefaultApi()
+            
+            let note = self.owner?.note
+            
+            let noteUpdate = OAINoteUpdate()
+            noteUpdate.title = note?.title
+            noteUpdate.content = self.editorTextView.text
+            noteUpdate.attachments = note?.attachments
+            
+            api.notesNoteIdPatch(withNoteId: note?._id, noteUpdate: noteUpdate, completionHandler: { (note, error) in
+                assert(note != nil)
+                assert(error == nil)
+                
+                updateNotes(withBoardId: note!.boardId)
+            })
+            
+            }).disposed(by: disposeBag)
 
         // Do any additional setup after loading the view.
     }

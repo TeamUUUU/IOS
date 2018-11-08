@@ -16,6 +16,7 @@ PODS:
     - AFNetworking/NSURLSession
   - ISO8601 (0.6.0)
   - JSONModel (1.8.0)
+  - markymark (8.0.0)
   - OpenAPIClient (1.0.0):
     - AFNetworking (~> 3)
     - ISO8601 (~> 0.6)
@@ -28,6 +29,7 @@ PODS:
   - SideMenu (5.0.1)
 
 DEPENDENCIES:
+  - markymark
   - OpenAPIClient (from `Vendor`)
   - RxCocoa
   - RxSwift
@@ -38,6 +40,7 @@ SPEC REPOS:
     - AFNetworking
     - ISO8601
     - JSONModel
+    - markymark
     - RxAtomic
     - RxCocoa
     - RxSwift
@@ -51,12 +54,13 @@ SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   ISO8601: d3ea3ba9b752820cf92c6b47a9ee327e9f0e13fc
   JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
+  markymark: 169ed4b8ce17cfa93ffb667884d2dd896f1a6d37
   OpenAPIClient: 0424d5af1aa8f2364de9c89f982383d5e85ca622
   RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
   RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
   SideMenu: 87efd943737bb83aedf0358884d09fcf5576636d
 
-PODFILE CHECKSUM: fe558922ca90a1359bd0e850bacd83013ef58193
+PODFILE CHECKSUM: 5eb428b7cfd6322ccc71ea9ad7cbf9ca517fed09
 
 COCOAPODS: 1.6.0.beta.2

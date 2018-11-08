@@ -28,6 +28,12 @@ class NotesTapBarController: UITabBarController {
         
         editorViewController.owner = self
         
+        guard let markDownViewController = self.viewControllers![1] as? MarkDownViewController else {
+            assert(false)
+        }
+        
+        markDownViewController.owner = self
+        
         // Do any additional setup after loading the view.
     }
     

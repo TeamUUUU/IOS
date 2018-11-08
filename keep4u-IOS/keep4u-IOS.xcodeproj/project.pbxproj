@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC31113B2194DDD0007CB37A /* MarkDownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC31113A2194DDD0007CB37A /* MarkDownViewController.swift */; };
 		CC3558982191678500FF74E8 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3558972191678500FF74E8 /* Helpers.swift */; };
 		CC46AC612188634600F3D50A /* LeftMenuNavigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC46AC602188634600F3D50A /* LeftMenuNavigation.storyboard */; };
 		CC46AC63218863FC00F3D50A /* RightMenuNavigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC46AC62218863FC00F3D50A /* RightMenuNavigation.storyboard */; };
@@ -36,6 +37,7 @@
 		64296A8FC0020313979E1236 /* Pods_keep4u_IOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_keep4u_IOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64CAD7FFA59AFD2C1434FA5E /* Pods-keep4u-IOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-keep4u-IOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-keep4u-IOS/Pods-keep4u-IOS.debug.xcconfig"; sourceTree = "<group>"; };
 		C5140FACE89E06816EE674C4 /* Pods-keep4u-IOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-keep4u-IOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-keep4u-IOS/Pods-keep4u-IOS.release.xcconfig"; sourceTree = "<group>"; };
+		CC31113A2194DDD0007CB37A /* MarkDownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkDownViewController.swift; sourceTree = "<group>"; };
 		CC3558972191678500FF74E8 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		CC46AC602188634600F3D50A /* LeftMenuNavigation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LeftMenuNavigation.storyboard; sourceTree = "<group>"; };
 		CC46AC62218863FC00F3D50A /* RightMenuNavigation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RightMenuNavigation.storyboard; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				CCD890D221947B9700BC24A7 /* Notes.swift */,
 				CCD890D72194961100BC24A7 /* NotesTapBarController.swift */,
 				CCA657F52194CD75000A2252 /* EditorViewController.swift */,
+				CC31113A2194DDD0007CB37A /* MarkDownViewController.swift */,
 			);
 			path = Notes;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/markymark/markymark.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -298,6 +302,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/markymark.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -320,6 +325,7 @@
 				CC88C2762182016100B57912 /* AppDelegate.m in Sources */,
 				CCD890D82194961100BC24A7 /* NotesTapBarController.swift in Sources */,
 				CC793CDE218FE6AB004D40EF /* LeftMenuNavigation.swift in Sources */,
+				CC31113B2194DDD0007CB37A /* MarkDownViewController.swift in Sources */,
 				CC793CE0218FF0D4004D40EF /* Boards.swift in Sources */,
 				CCD890D021947A7A00BC24A7 /* NotesViewController.swift in Sources */,
 				CCD890CC2194757F00BC24A7 /* NoteCollectionViewCell.swift in Sources */,
