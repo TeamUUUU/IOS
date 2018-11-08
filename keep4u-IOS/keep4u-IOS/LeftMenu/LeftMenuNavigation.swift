@@ -43,6 +43,12 @@ class LeftMenuNavigation: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        tableView.rx.itemSelected.subscribe(onNext: { item in
+    
+            updateNotes(withBoardId: hotObservable.value[item.row]._id)
+            
+        }).disposed(by: disposeBag)
+        
         updateBoards()
         // Do any additional setup after loading the view.
     }

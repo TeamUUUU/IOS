@@ -117,8 +117,8 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 ///  code:500 message:"Server internal error"
 ///
 /// @return OAINotes*
--(NSURLSessionTask*) boardsBoardIdNotesGetWithCompletionHandler: 
-    (void (^)(OAINotes* output, NSError* error)) handler;
+-(NSURLSessionTask*) boardsBoardIdNotesGetWithBoardId:(NSString*)boardId completionHandler:
+(void (^)(OAINotes* output, NSError* error)) handler;
 
 
 /// Create new note on board

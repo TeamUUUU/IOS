@@ -443,9 +443,9 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 /// 
 ///  @returns OAINotes*
 ///
--(NSURLSessionTask*) boardsBoardIdNotesGetWithCompletionHandler: 
+-(NSURLSessionTask*) boardsBoardIdNotesGetWithBoardId:(NSString*)boardId completionHandler:
     (void (^)(OAINotes* output, NSError* error)) handler {
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/boards/{board_id}/notes"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/boards/%@/notes", boardId];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
 
