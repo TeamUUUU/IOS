@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 
+
 @interface AppDelegate ()
 
 @end
@@ -17,6 +18,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    GIDSignIn* sharedInstance = [GIDSignIn sharedInstance];
+    
+    sharedInstance.clientID = @"";
+    sharedInstance.delegate = self;
+    
+    if (sharedInstance.hasAuthInKeychain)
+    {
+        [sharedInstance signInSilently];
+    }
+    
     return YES;
 }
 
@@ -46,6 +58,38 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+    
+- (BOOL)application:(UIApplication *)app
+            openURL:(NSURL *)url
+            options:(NSDictionary<NSString *, id> *)options {
+    return [[GIDSignIn sharedInstance] handleURL:url
+                            sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                                      annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
+}
 
+- (void)signIn:(GIDSignIn *)signIn
+didSignInForUser:(GIDGoogleUser *)user
+     withError:(NSError *)error
+{
+    NSAssert(signIn, @"");
+    NSAssert(user, @"");
+    NSAssert(!error, @"");
+    
+    if (user && !error)
+    {
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"ToggleAuthUINotification"
+         object:nil
+         userInfo:nil];
+    }
+}
+    
+- (void)signIn:(GIDSignIn *)signIn
+didDisconnectWithUser:(GIDGoogleUser *)user
+     withError:(NSError *)error
+{
+    // Perform any operations when the user disconnects from app here.
+    // ...
+}
 
 @end

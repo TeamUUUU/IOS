@@ -9,9 +9,14 @@
 import UIKit
 import RxCocoa
 
-var hotObservable = BehaviorRelay<Array<OAIBoard>>(value: [])
+let hotObservable = BehaviorRelay<Array<OAIBoard>>(value: [])
 
 public func updateBoards()
+{
+    updateBoards(nil)
+}
+
+public func updateBoards(_ completionHandler: ((OAIBoards?, Error?) -> Void)?)
 {
     let boards = OAIDefaultApi()
     let user = OAIDefaultConfiguration.sharedConfig()?.username
@@ -20,16 +25,18 @@ public func updateBoards()
         
         assert(error == nil, "Got error")
         
-        guard let boards = boardsRaw else {
+        guard let boards = boardsRaw as? Array<OAIBoard> else {
             print("\(#function): failed to fetch boards")
             assert(false, "Expected boards")
             return
         }
         
-        print("boards count: \((boards as! Array<OAIBoard>).count)")
-        print("last board: \(String(describing: (boards as! Array<OAIBoard>).last))")
+//        print("boards count: \((boards as! Array<OAIBoard>).count)")
+//        print("last board: \(String(describing: (boards as! Array<OAIBoard>).last))")
         
-        hotObservable.accept(boards as! Array<OAIBoard>)
+        hotObservable.accept(boards)
+        
+        completionHandler?(boardsRaw, error)
     }
     )
 }

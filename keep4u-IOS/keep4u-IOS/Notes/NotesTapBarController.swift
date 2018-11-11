@@ -24,12 +24,14 @@ class NotesTapBarController: UITabBarController {
         
         guard let editorViewController = self.viewControllers?.first as? EditorViewController else {
             assert(false)
+            return
         }
         
         editorViewController.owner = self
         
         guard let markDownViewController = self.viewControllers![1] as? MarkDownViewController else {
             assert(false)
+            return
         }
         
         markDownViewController.owner = self

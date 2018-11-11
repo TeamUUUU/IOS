@@ -25,8 +25,8 @@ public func updateNotes(withBoardId boardId : String)
             return
         }
         
-        print("notes count: \((notes as! Array<OAIBoard>).count)")
-        print("last note: \(String(describing: (notes as! Array<OAINote>).last))")
+//        print("notes count: \((notes as! Array<OAIBoard>).count)")
+//        print("last note: \(String(describing: (notes as! Array<OAINote>).last))")
         
         notesObservable.accept(notes as! Array<OAINote>)
     }

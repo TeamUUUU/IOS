@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC1016342198BD080030596E /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1016332198BD080030596E /* UserProfileViewController.swift */; };
+		CC1016452198C9A70030596E /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1016392198C9A70030596E /* ImageService.swift */; };
+		CC1016462198C9A70030596E /* ReachabilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC10163A2198C9A70030596E /* ReachabilityService.swift */; };
+		CC1016472198C9A70030596E /* PseudoRandomGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC10163B2198C9A70030596E /* PseudoRandomGenerator.swift */; };
+		CC1016482198C9A70030596E /* Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC10163C2198C9A70030596E /* Wireframe.swift */; };
+		CC1016492198C9A70030596E /* UIImageView+DownloadableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC10163D2198C9A70030596E /* UIImageView+DownloadableImage.swift */; };
+		CC10164A2198C9A70030596E /* HtmlParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC10163E2198C9A70030596E /* HtmlParsing.swift */; };
+		CC10164C2198C9A70030596E /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1016402198C9A70030596E /* UIImage+Extensions.swift */; };
+		CC10164D2198C9A70030596E /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1016412198C9A70030596E /* ActivityIndicator.swift */; };
+		CC10164E2198C9A70030596E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1016422198C9A70030596E /* Reachability.swift */; };
+		CC1016502198C9A70030596E /* DownloadableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1016442198C9A70030596E /* DownloadableImage.swift */; };
+		CC1016522198CB260030596E /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1016512198CB260030596E /* Example.swift */; };
+		CC1016542198CB8A0030596E /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1016532198CB8A0030596E /* Dependencies.swift */; };
 		CC31113B2194DDD0007CB37A /* MarkDownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC31113A2194DDD0007CB37A /* MarkDownViewController.swift */; };
 		CC3558982191678500FF74E8 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3558972191678500FF74E8 /* Helpers.swift */; };
 		CC46AC612188634600F3D50A /* LeftMenuNavigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC46AC602188634600F3D50A /* LeftMenuNavigation.storyboard */; };
@@ -37,6 +50,19 @@
 		64296A8FC0020313979E1236 /* Pods_keep4u_IOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_keep4u_IOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64CAD7FFA59AFD2C1434FA5E /* Pods-keep4u-IOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-keep4u-IOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-keep4u-IOS/Pods-keep4u-IOS.debug.xcconfig"; sourceTree = "<group>"; };
 		C5140FACE89E06816EE674C4 /* Pods-keep4u-IOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-keep4u-IOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-keep4u-IOS/Pods-keep4u-IOS.release.xcconfig"; sourceTree = "<group>"; };
+		CC1016332198BD080030596E /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		CC1016392198C9A70030596E /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		CC10163A2198C9A70030596E /* ReachabilityService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityService.swift; sourceTree = "<group>"; };
+		CC10163B2198C9A70030596E /* PseudoRandomGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PseudoRandomGenerator.swift; sourceTree = "<group>"; };
+		CC10163C2198C9A70030596E /* Wireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wireframe.swift; sourceTree = "<group>"; };
+		CC10163D2198C9A70030596E /* UIImageView+DownloadableImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadableImage.swift"; sourceTree = "<group>"; };
+		CC10163E2198C9A70030596E /* HtmlParsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HtmlParsing.swift; sourceTree = "<group>"; };
+		CC1016402198C9A70030596E /* UIImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		CC1016412198C9A70030596E /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		CC1016422198C9A70030596E /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		CC1016442198C9A70030596E /* DownloadableImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadableImage.swift; sourceTree = "<group>"; };
+		CC1016512198CB260030596E /* Example.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
+		CC1016532198CB8A0030596E /* Dependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
 		CC31113A2194DDD0007CB37A /* MarkDownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkDownViewController.swift; sourceTree = "<group>"; };
 		CC3558972191678500FF74E8 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		CC46AC602188634600F3D50A /* LeftMenuNavigation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LeftMenuNavigation.storyboard; sourceTree = "<group>"; };
@@ -97,6 +123,34 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CC1016322198B9410030596E /* RightMenu */ = {
+			isa = PBXGroup;
+			children = (
+				CC46AC62218863FC00F3D50A /* RightMenuNavigation.storyboard */,
+				CC1016332198BD080030596E /* UserProfileViewController.swift */,
+			);
+			path = RightMenu;
+			sourceTree = "<group>";
+		};
+		CC1016382198C9A70030596E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CC1016532198CB8A0030596E /* Dependencies.swift */,
+				CC1016512198CB260030596E /* Example.swift */,
+				CC1016392198C9A70030596E /* ImageService.swift */,
+				CC10163A2198C9A70030596E /* ReachabilityService.swift */,
+				CC10163B2198C9A70030596E /* PseudoRandomGenerator.swift */,
+				CC10163C2198C9A70030596E /* Wireframe.swift */,
+				CC10163D2198C9A70030596E /* UIImageView+DownloadableImage.swift */,
+				CC10163E2198C9A70030596E /* HtmlParsing.swift */,
+				CC1016402198C9A70030596E /* UIImage+Extensions.swift */,
+				CC1016412198C9A70030596E /* ActivityIndicator.swift */,
+				CC1016422198C9A70030596E /* Reachability.swift */,
+				CC1016442198C9A70030596E /* DownloadableImage.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		CC793CE1218FF5EA004D40EF /* LeftMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +182,8 @@
 		CC88C2732182016100B57912 /* keep4u-IOS */ = {
 			isa = PBXGroup;
 			children = (
+				CC1016382198C9A70030596E /* Services */,
+				CC1016322198B9410030596E /* RightMenu */,
 				CC793CE1218FF5EA004D40EF /* LeftMenu */,
 				CCE852B0218847D800DB57CE /* ViewController.h */,
 				CCE852B1218847D800DB57CE /* ViewController.m */,
@@ -143,7 +199,6 @@
 				CCE852AD2188476C00DB57CE /* keep4u-IOS-Bridging-Header.h */,
 				CCE852B42188591600DB57CE /* MainRoutine.storyboard */,
 				CCD890D121947A9900BC24A7 /* Notes */,
-				CC46AC62218863FC00F3D50A /* RightMenuNavigation.storyboard */,
 				CC46AC64218866CA00F3D50A /* NavController.swift */,
 				CC88055B218B49FB0011E2FF /* TableViewCell.swift */,
 				CCB7AF44218FBE59005614BC /* AddNewBoard.swift */,
@@ -179,6 +234,7 @@
 				CC88C26E2182016100B57912 /* Frameworks */,
 				CC88C26F2182016100B57912 /* Resources */,
 				CEFEDFB43A1A26073DC00C60 /* [CP] Embed Pods Frameworks */,
+				6061F831BEFDEF1538C937AD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -258,6 +314,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6061F831BEFDEF1538C937AD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-keep4u-IOS/Pods-keep4u-IOS-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-keep4u-IOS/Pods-keep4u-IOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CC46AC6821886C5200F3D50A /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -283,6 +361,9 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-keep4u-IOS/Pods-keep4u-IOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/ISO8601/ISO8601.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework",
 				"${BUILT_PRODUCTS_DIR}/OpenAPIClient/OpenAPIClient.framework",
@@ -295,6 +376,9 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ISO8601.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONModel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenAPIClient.framework",
@@ -316,19 +400,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC1016522198CB260030596E /* Example.swift in Sources */,
+				CC1016542198CB8A0030596E /* Dependencies.swift in Sources */,
+				CC10164A2198C9A70030596E /* HtmlParsing.swift in Sources */,
 				CC46AC65218866CA00F3D50A /* NavController.swift in Sources */,
+				CC10164C2198C9A70030596E /* UIImage+Extensions.swift in Sources */,
 				CCD890D321947B9700BC24A7 /* Notes.swift in Sources */,
+				CC10164D2198C9A70030596E /* ActivityIndicator.swift in Sources */,
+				CC10164E2198C9A70030596E /* Reachability.swift in Sources */,
 				CC793CE3218FFC8D004D40EF /* BoardDetails.swift in Sources */,
 				CC88C2842182016500B57912 /* main.m in Sources */,
 				CC3558982191678500FF74E8 /* Helpers.swift in Sources */,
+				CC1016342198BD080030596E /* UserProfileViewController.swift in Sources */,
 				CCE852B2218847D800DB57CE /* ViewController.m in Sources */,
 				CC88C2762182016100B57912 /* AppDelegate.m in Sources */,
+				CC1016492198C9A70030596E /* UIImageView+DownloadableImage.swift in Sources */,
+				CC1016482198C9A70030596E /* Wireframe.swift in Sources */,
 				CCD890D82194961100BC24A7 /* NotesTapBarController.swift in Sources */,
 				CC793CDE218FE6AB004D40EF /* LeftMenuNavigation.swift in Sources */,
 				CC31113B2194DDD0007CB37A /* MarkDownViewController.swift in Sources */,
+				CC1016452198C9A70030596E /* ImageService.swift in Sources */,
+				CC1016462198C9A70030596E /* ReachabilityService.swift in Sources */,
 				CC793CE0218FF0D4004D40EF /* Boards.swift in Sources */,
+				CC1016472198C9A70030596E /* PseudoRandomGenerator.swift in Sources */,
 				CCD890D021947A7A00BC24A7 /* NotesViewController.swift in Sources */,
 				CCD890CC2194757F00BC24A7 /* NoteCollectionViewCell.swift in Sources */,
+				CC1016502198C9A70030596E /* DownloadableImage.swift in Sources */,
 				CC88055D218B49FB0011E2FF /* TableViewCell.swift in Sources */,
 				CCA657F62194CD75000A2252 /* EditorViewController.swift in Sources */,
 				CCB7AF45218FBE59005614BC /* AddNewBoard.swift in Sources */,
