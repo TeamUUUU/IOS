@@ -43,7 +43,6 @@ class AddNewBoard: UIViewController
     @IBAction func addBoard(_ sender: Any)
     {
         let api = OAIDefaultApi()
-        let user = OAIDefaultConfiguration.sharedConfig()?.username
         
         if (self.board == nil)
         {
@@ -53,7 +52,7 @@ class AddNewBoard: UIViewController
             board!._description = descriptionText.text
             board!.createdAt = NSDate().timeIntervalSince1970 as NSNumber
             
-            api.boardsPost(withUserId: user, board: board, completionHandler: { (board, error) in
+            api.boardsPost(withAuthorization:tokenId, board: board, completionHandler: { (board, error) in
                             assert(board != nil, "Expected board")
                             assert(error == nil, "Got error")
                             updateBoards()

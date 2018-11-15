@@ -64,14 +64,11 @@ class NotesViewController: UIViewController {
         
         let newNote = OAINote()
         newNote.title = "New note"
-        
-        
-//        api.boardsBoardIdNotesPost(with: <#T##OAINote!#>, completionHandler: <#T##((OAINote?, Error?) -> Void)!##((OAINote?, Error?) -> Void)!##(OAINote?, Error?) -> Void#>)
-        
-        api.boardsBoardIdNotesPost(with: newNote, boardId: lastBoardId, completionHandler: { (noteRaw, error) in
+         
+        api.boardsBoardIdNotesPost(withAuthorization:tokenId, boardId:lastBoardId, note:newNote, completionHandler: { (note, error) in
             
             assert(error == nil, "Got error")
-            assert(noteRaw != nil)
+            assert(note != nil)
         
             updateNotes(withBoardId: lastBoardId)
         })

@@ -22,6 +22,19 @@ class UserProfileViewController: UIViewController, GIDSignInUIDelegate
     
     let isSignedIn = BehaviorRelay<Bool>(value: true)
     
+    var timer = Timer()
+    
+    func scheduledTimerWithTimeInterval(){
+        // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: Selector("updateCounting"), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateCounting()
+    {
+        updateBoards()
+        updateNotes(withBoardId: lastBoardId)
+    }
+    
     var downloadableImage: Observable<DownloadableImage>?{
         didSet
         {
@@ -35,6 +48,8 @@ class UserProfileViewController: UIViewController, GIDSignInUIDelegate
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        scheduledTimerWithTimeInterval()
         
         self.updateUIPresentation(signedIn: false)
         
@@ -52,6 +67,17 @@ class UserProfileViewController: UIViewController, GIDSignInUIDelegate
             
             if (signedIn)
             {
+                tokenId = gApi.currentUser.authentication.idToken                
+
+                updateBoards( { (boardsRaw, error) in
+                    
+                    guard let boards = boardsRaw as? Array<OAIBoard> else { return }
+                    
+                    guard let firstBoard = boards.first else { return }
+                    
+                    updateNotes(withBoardId: firstBoard._id)
+                })
+                
                 if (gApi.currentUser.profile.hasImage)
                 {
                     let reachabilityService = Dependencies.sharedDependencies.reachabilityService

@@ -61,15 +61,29 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 /// 
 ///  @param attachmentId UUID of attachment 
 ///
+///  @param authorization Google ClientID token 
+///
 ///  @returns void
 ///
 -(NSURLSessionTask*) attachmentsAttachmentIdDeleteWithAttachmentId: (NSString*) attachmentId
+    authorization: (NSString*) authorization
     completionHandler: (void (^)(NSError* error)) handler {
     // verify the required parameter 'attachmentId' is set
     if (attachmentId == nil) {
         NSParameterAssert(attachmentId);
         if(handler) {
             NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"attachmentId"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'authorization' is set
+    if (authorization == nil) {
+        NSParameterAssert(authorization);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"authorization"] };
             NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
             handler(error);
         }
@@ -86,6 +100,9 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (authorization != nil) {
+        headerParams[@"Authorization"] = authorization;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {
@@ -129,15 +146,29 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 /// 
 ///  @param attachmentId UUID of attachment 
 ///
+///  @param authorization Google ClientID token 
+///
 ///  @returns OAIAttachment*
 ///
 -(NSURLSessionTask*) attachmentsAttachmentIdGetWithAttachmentId: (NSString*) attachmentId
+    authorization: (NSString*) authorization
     completionHandler: (void (^)(OAIAttachment* output, NSError* error)) handler {
     // verify the required parameter 'attachmentId' is set
     if (attachmentId == nil) {
         NSParameterAssert(attachmentId);
         if(handler) {
             NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"attachmentId"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'authorization' is set
+    if (authorization == nil) {
+        NSParameterAssert(authorization);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"authorization"] };
             NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -154,6 +185,9 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (authorization != nil) {
+        headerParams[@"Authorization"] = authorization;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {
@@ -195,12 +229,26 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 /// Upload attachment to server
 /// 
+///  @param authorization Google ClientID token 
+///
 ///  @param file  (optional)
 ///
 ///  @returns OAIAttachment*
 ///
--(NSURLSessionTask*) attachmentsPostWithFile: (NSURL*) file
+-(NSURLSessionTask*) attachmentsPostWithAuthorization: (NSString*) authorization
+    file: (NSURL*) file
     completionHandler: (void (^)(OAIAttachment* output, NSError* error)) handler {
+    // verify the required parameter 'authorization' is set
+    if (authorization == nil) {
+        NSParameterAssert(authorization);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"authorization"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/attachments"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
@@ -208,6 +256,9 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (authorization != nil) {
+        headerParams[@"Authorization"] = authorization;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {
@@ -250,12 +301,26 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 /// 
 /// Adds collaborators to board. Returns all board's collaborators.
+///  @param authorization Google ClientID token 
+///
 ///  @param requestBody  (optional)
 ///
 ///  @returns OAICollaborators*
 ///
--(NSURLSessionTask*) boardsBoardIdCollaboratorsPatchWithRequestBody: (NSArray<NSString*>*) requestBody
+-(NSURLSessionTask*) boardsBoardIdCollaboratorsPatchWithAuthorization: (NSString*) authorization
+    requestBody: (NSArray<NSString*>*) requestBody
     completionHandler: (void (^)(OAICollaborators* output, NSError* error)) handler {
+    // verify the required parameter 'authorization' is set
+    if (authorization == nil) {
+        NSParameterAssert(authorization);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"authorization"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/boards/{board_id}/collaborators"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
@@ -263,6 +328,9 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (authorization != nil) {
+        headerParams[@"Authorization"] = authorization;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {
@@ -375,15 +443,29 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 /// 
 ///  @param boardId UUID of board 
 ///
+///  @param authorization Google ClientID token 
+///
 ///  @returns OAIBoard*
 ///
 -(NSURLSessionTask*) boardsBoardIdGetWithBoardId: (NSString*) boardId
+    authorization: (NSString*) authorization
     completionHandler: (void (^)(OAIBoard* output, NSError* error)) handler {
     // verify the required parameter 'boardId' is set
     if (boardId == nil) {
         NSParameterAssert(boardId);
         if(handler) {
             NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"boardId"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'authorization' is set
+    if (authorization == nil) {
+        NSParameterAssert(authorization);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"authorization"] };
             NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -400,6 +482,9 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (authorization != nil) {
+        headerParams[@"Authorization"] = authorization;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {
@@ -441,10 +526,23 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 /// Get notes for board
 /// 
+///  @param authorization Google ClientID token 
+///
 ///  @returns OAINotes*
 ///
--(NSURLSessionTask*) boardsBoardIdNotesGetWithBoardId:(NSString*)boardId completionHandler:
-    (void (^)(OAINotes* output, NSError* error)) handler {
+-(NSURLSessionTask*) boardsBoardIdNotesGetWithAuthorization: (NSString*) authorization boardId:(NSString*)boardId
+                                          completionHandler: (void (^)(OAINotes* output, NSError* error)) handler {
+    // verify the required parameter 'authorization' is set
+    if (authorization == nil) {
+        NSParameterAssert(authorization);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"authorization"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/boards/%@/notes", boardId];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
@@ -452,6 +550,9 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (authorization != nil) {
+        headerParams[@"Authorization"] = authorization;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {
@@ -493,19 +594,37 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 /// Create new note on board
 /// 
+///  @param authorization Google ClientID token 
+///
 ///  @param note  (optional)
 ///
 ///  @returns OAINote*
 ///
--(NSURLSessionTask*) boardsBoardIdNotesPostWithNote: (OAINote*) note boardId:(NSString*) boardId
-    completionHandler: (void (^)(OAINote* output, NSError* error)) handler {
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/boards/{%@}/notes", boardId];
+-(NSURLSessionTask*) boardsBoardIdNotesPostWithAuthorization: (NSString*) authorization boardId:(NSString*) boardId
+                                                        note: (OAINote*) note
+                                           completionHandler: (void (^)(OAINote* output, NSError* error)) handler
+{
+    // verify the required parameter 'authorization' is set
+    if (authorization == nil) {
+        NSParameterAssert(authorization);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"authorization"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/boards/%@/notes", boardId];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (authorization != nil) {
+        headerParams[@"Authorization"] = authorization;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {
@@ -620,17 +739,17 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 /// Get user boards
 /// Gets all boards for current user 
-///  @param userId Google ClientID token 
+///  @param authorization Google ClientID token 
 ///
 ///  @returns OAIBoards*
 ///
--(NSURLSessionTask*) boardsGetWithUserId: (NSString*) userId
+-(NSURLSessionTask*) boardsGetWithAuthorization: (NSString*) authorization
     completionHandler: (void (^)(OAIBoards* output, NSError* error)) handler {
-    // verify the required parameter 'userId' is set
-    if (userId == nil) {
-        NSParameterAssert(userId);
+    // verify the required parameter 'authorization' is set
+    if (authorization == nil) {
+        NSParameterAssert(authorization);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"userId"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"authorization"] };
             NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -642,11 +761,11 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if (userId != nil) {
-        queryParams[@"user_id"] = userId;
-    }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (authorization != nil) {
+        headerParams[@"Authorization"] = authorization;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {
@@ -688,20 +807,20 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 /// Create new board
 /// Create new board for current user 
-///  @param userId Google ClientID token 
+///  @param authorization Google ClientID token 
 ///
 ///  @param board  (optional)
 ///
 ///  @returns OAIBoard*
 ///
--(NSURLSessionTask*) boardsPostWithUserId: (NSString*) userId
+-(NSURLSessionTask*) boardsPostWithAuthorization: (NSString*) authorization
     board: (OAIBoard*) board
     completionHandler: (void (^)(OAIBoard* output, NSError* error)) handler {
-    // verify the required parameter 'userId' is set
-    if (userId == nil) {
-        NSParameterAssert(userId);
+    // verify the required parameter 'authorization' is set
+    if (authorization == nil) {
+        NSParameterAssert(authorization);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"userId"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"authorization"] };
             NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -713,11 +832,11 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if (userId != nil) {
-        queryParams[@"user_id"] = userId;
-    }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (authorization != nil) {
+        headerParams[@"Authorization"] = authorization;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {
@@ -762,15 +881,29 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 /// 
 ///  @param noteId UUID of note 
 ///
+///  @param authorization Google ClientID token 
+///
 ///  @returns void
 ///
 -(NSURLSessionTask*) notesNoteIdDeleteWithNoteId: (NSString*) noteId
+    authorization: (NSString*) authorization
     completionHandler: (void (^)(NSError* error)) handler {
     // verify the required parameter 'noteId' is set
     if (noteId == nil) {
         NSParameterAssert(noteId);
         if(handler) {
             NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"noteId"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'authorization' is set
+    if (authorization == nil) {
+        NSParameterAssert(authorization);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"authorization"] };
             NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
             handler(error);
         }
@@ -787,6 +920,9 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (authorization != nil) {
+        headerParams[@"Authorization"] = authorization;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {
@@ -830,15 +966,29 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 /// 
 ///  @param noteId UUID of note 
 ///
+///  @param authorization Google ClientID token 
+///
 ///  @returns OAINote*
 ///
 -(NSURLSessionTask*) notesNoteIdGetWithNoteId: (NSString*) noteId
+    authorization: (NSString*) authorization
     completionHandler: (void (^)(OAINote* output, NSError* error)) handler {
     // verify the required parameter 'noteId' is set
     if (noteId == nil) {
         NSParameterAssert(noteId);
         if(handler) {
             NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"noteId"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'authorization' is set
+    if (authorization == nil) {
+        NSParameterAssert(authorization);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"authorization"] };
             NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -855,6 +1005,9 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (authorization != nil) {
+        headerParams[@"Authorization"] = authorization;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {
@@ -898,11 +1051,14 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 /// 
 ///  @param noteId UUID of note 
 ///
+///  @param authorization Google ClientID token 
+///
 ///  @param noteUpdate  (optional)
 ///
 ///  @returns OAINote*
 ///
 -(NSURLSessionTask*) notesNoteIdPatchWithNoteId: (NSString*) noteId
+    authorization: (NSString*) authorization
     noteUpdate: (OAINoteUpdate*) noteUpdate
     completionHandler: (void (^)(OAINote* output, NSError* error)) handler {
     // verify the required parameter 'noteId' is set
@@ -910,6 +1066,17 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
         NSParameterAssert(noteId);
         if(handler) {
             NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"noteId"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'authorization' is set
+    if (authorization == nil) {
+        NSParameterAssert(authorization);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"authorization"] };
             NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -926,6 +1093,9 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (authorization != nil) {
+        headerParams[@"Authorization"] = authorization;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {
@@ -970,6 +1140,8 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 /// 
 ///  @param text  
 ///
+///  @param authorization Google ClientID token 
+///
 ///  @param limit text to be searched in notes (optional, default to @10)
 ///
 ///  @param asc should notes be returned in descending(default) or ascending order. (optional, default to @(NO))
@@ -977,6 +1149,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///  @returns OAINotes*
 ///
 -(NSURLSessionTask*) searchNotesGetWithText: (NSString*) text
+    authorization: (NSString*) authorization
     limit: (NSNumber*) limit
     asc: (NSNumber*) asc
     completionHandler: (void (^)(OAINotes* output, NSError* error)) handler {
@@ -985,6 +1158,17 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
         NSParameterAssert(text);
         if(handler) {
             NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"text"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'authorization' is set
+    if (authorization == nil) {
+        NSParameterAssert(authorization);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"authorization"] };
             NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -1007,6 +1191,9 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (authorization != nil) {
+        headerParams[@"Authorization"] = authorization;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {

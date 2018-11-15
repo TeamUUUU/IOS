@@ -34,12 +34,14 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 /// 
 ///
 /// @param attachmentId UUID of attachment
+/// @param authorization Google ClientID token
 /// 
 ///  code:204 message:"Ok",
 ///  code:500 message:"Server internal error"
 ///
 /// @return void
 -(NSURLSessionTask*) attachmentsAttachmentIdDeleteWithAttachmentId: (NSString*) attachmentId
+    authorization: (NSString*) authorization
     completionHandler: (void (^)(NSError* error)) handler;
 
 
@@ -47,31 +49,36 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 /// 
 ///
 /// @param attachmentId UUID of attachment
+/// @param authorization Google ClientID token
 /// 
 ///  code:200 message:"Ok",
 ///  code:500 message:"Server internal error"
 ///
 /// @return OAIAttachment*
 -(NSURLSessionTask*) attachmentsAttachmentIdGetWithAttachmentId: (NSString*) attachmentId
+    authorization: (NSString*) authorization
     completionHandler: (void (^)(OAIAttachment* output, NSError* error)) handler;
 
 
 /// Upload attachment to server
 /// 
 ///
+/// @param authorization Google ClientID token
 /// @param file  (optional)
 /// 
 ///  code:201 message:"Ok",
 ///  code:500 message:"Server internal error"
 ///
 /// @return OAIAttachment*
--(NSURLSessionTask*) attachmentsPostWithFile: (NSURL*) file
+-(NSURLSessionTask*) attachmentsPostWithAuthorization: (NSString*) authorization
+    file: (NSURL*) file
     completionHandler: (void (^)(OAIAttachment* output, NSError* error)) handler;
 
 
 /// 
 /// Adds collaborators to board. Returns all board's collaborators.
 ///
+/// @param authorization Google ClientID token
 /// @param requestBody  (optional)
 /// 
 ///  code:200 message:"Collaborators was successfully added",
@@ -79,7 +86,8 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 ///  code:404 message:"Board not found"
 ///
 /// @return OAICollaborators*
--(NSURLSessionTask*) boardsBoardIdCollaboratorsPatchWithRequestBody: (NSArray<NSString*>*) requestBody
+-(NSURLSessionTask*) boardsBoardIdCollaboratorsPatchWithAuthorization: (NSString*) authorization
+    requestBody: (NSArray<NSString*>*) requestBody
     completionHandler: (void (^)(OAICollaborators* output, NSError* error)) handler;
 
 
@@ -100,37 +108,42 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 /// 
 ///
 /// @param boardId UUID of board
+/// @param authorization Google ClientID token
 /// 
 ///  code:200 message:"Ok",
 ///  code:500 message:"Server internal error"
 ///
 /// @return OAIBoard*
 -(NSURLSessionTask*) boardsBoardIdGetWithBoardId: (NSString*) boardId
+    authorization: (NSString*) authorization
     completionHandler: (void (^)(OAIBoard* output, NSError* error)) handler;
 
 
 /// Get notes for board
 /// 
 ///
+/// @param authorization Google ClientID token
 /// 
 ///  code:200 message:"Ok",
 ///  code:500 message:"Server internal error"
 ///
 /// @return OAINotes*
--(NSURLSessionTask*) boardsBoardIdNotesGetWithBoardId:(NSString*)boardId completionHandler:
-(void (^)(OAINotes* output, NSError* error)) handler;
+-(NSURLSessionTask*) boardsBoardIdNotesGetWithAuthorization: (NSString*) authorization boardId:(NSString*)boardId
+    completionHandler: (void (^)(OAINotes* output, NSError* error)) handler;
 
 
 /// Create new note on board
 /// 
 ///
+/// @param authorization Google ClientID token
 /// @param note  (optional)
 /// 
 ///  code:201 message:"Ok",
 ///  code:500 message:"Server internal error"
 ///
 /// @return OAINote*
--(NSURLSessionTask*) boardsBoardIdNotesPostWithNote: (OAINote*) note boardId:(NSString*) boardId
+-(NSURLSessionTask*) boardsBoardIdNotesPostWithAuthorization: (NSString*) authorization boardId:(NSString*) boardId
+    note: (OAINote*) note
     completionHandler: (void (^)(OAINote* output, NSError* error)) handler;
 
 
@@ -152,27 +165,27 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 /// Get user boards
 /// Gets all boards for current user 
 ///
-/// @param userId Google ClientID token
+/// @param authorization Google ClientID token
 /// 
 ///  code:200 message:"Ok",
 ///  code:500 message:"Server internal error"
 ///
 /// @return OAIBoards*
--(NSURLSessionTask*) boardsGetWithUserId: (NSString*) userId
+-(NSURLSessionTask*) boardsGetWithAuthorization: (NSString*) authorization
     completionHandler: (void (^)(OAIBoards* output, NSError* error)) handler;
 
 
 /// Create new board
 /// Create new board for current user 
 ///
-/// @param userId Google ClientID token
+/// @param authorization Google ClientID token
 /// @param board  (optional)
 /// 
 ///  code:201 message:"Ok",
 ///  code:500 message:"Server internal error"
 ///
 /// @return OAIBoard*
--(NSURLSessionTask*) boardsPostWithUserId: (NSString*) userId
+-(NSURLSessionTask*) boardsPostWithAuthorization: (NSString*) authorization
     board: (OAIBoard*) board
     completionHandler: (void (^)(OAIBoard* output, NSError* error)) handler;
 
@@ -181,12 +194,14 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 /// 
 ///
 /// @param noteId UUID of note
+/// @param authorization Google ClientID token
 /// 
 ///  code:204 message:"Ok",
 ///  code:500 message:"Server internal error"
 ///
 /// @return void
 -(NSURLSessionTask*) notesNoteIdDeleteWithNoteId: (NSString*) noteId
+    authorization: (NSString*) authorization
     completionHandler: (void (^)(NSError* error)) handler;
 
 
@@ -194,12 +209,14 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 /// 
 ///
 /// @param noteId UUID of note
+/// @param authorization Google ClientID token
 /// 
 ///  code:200 message:"Ok",
 ///  code:500 message:"Server internal error"
 ///
 /// @return OAINote*
 -(NSURLSessionTask*) notesNoteIdGetWithNoteId: (NSString*) noteId
+    authorization: (NSString*) authorization
     completionHandler: (void (^)(OAINote* output, NSError* error)) handler;
 
 
@@ -207,6 +224,7 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 /// 
 ///
 /// @param noteId UUID of note
+/// @param authorization Google ClientID token
 /// @param noteUpdate  (optional)
 /// 
 ///  code:200 message:"Ok",
@@ -214,6 +232,7 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 ///
 /// @return OAINote*
 -(NSURLSessionTask*) notesNoteIdPatchWithNoteId: (NSString*) noteId
+    authorization: (NSString*) authorization
     noteUpdate: (OAINoteUpdate*) noteUpdate
     completionHandler: (void (^)(OAINote* output, NSError* error)) handler;
 
@@ -222,6 +241,7 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 /// 
 ///
 /// @param text 
+/// @param authorization Google ClientID token
 /// @param limit text to be searched in notes (optional) (default to @10)
 /// @param asc should notes be returned in descending(default) or ascending order. (optional) (default to @(NO))
 /// 
@@ -230,6 +250,7 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 ///
 /// @return OAINotes*
 -(NSURLSessionTask*) searchNotesGetWithText: (NSString*) text
+    authorization: (NSString*) authorization
     limit: (NSNumber*) limit
     asc: (NSNumber*) asc
     completionHandler: (void (^)(OAINotes* output, NSError* error)) handler;

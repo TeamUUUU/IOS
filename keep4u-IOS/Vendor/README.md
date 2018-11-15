@@ -69,11 +69,13 @@ Please follow the [installation procedure](#installation--usage) and then run th
 
 
 NSString* *attachmentId = @"attachmentId_example"; // UUID of attachment
+NSString* *authorization = @"authorization_example"; // Google ClientID token
 
 OAIDefaultApi *apiInstance = [[OAIDefaultApi alloc] init];
 
 // Delete attachment info by id
 [apiInstance attachmentsAttachmentIdDeleteWithAttachmentId:attachmentId
+    authorization:authorization
               completionHandler: ^(NSError* error) {
                             if (error) {
                                 NSLog(@"Error: %@", error);

@@ -13,12 +13,13 @@ var notesObservable = BehaviorRelay<Array<OAINote>>(value: [])
 
 var lastBoardId : String = ""
 
+var tokenId : String = ""
 
 public func updateNotes(withBoardId boardId : String)
 {
     let api = OAIDefaultApi()
     
-    api.boardsBoardIdNotesGet(withBoardId: boardId, completionHandler: { (notesRaw, error) in
+    api.boardsBoardIdNotesGet(withAuthorization:tokenId, boardId: boardId, completionHandler: { (notesRaw, error) in
         
         assert(error == nil, "Got error")
         
@@ -38,4 +39,3 @@ public func updateNotes(withBoardId boardId : String)
     
     
 }
-

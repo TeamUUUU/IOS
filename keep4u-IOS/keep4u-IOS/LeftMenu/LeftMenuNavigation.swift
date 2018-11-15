@@ -49,14 +49,7 @@ class LeftMenuNavigation: UIViewController {
             
         }).disposed(by: disposeBag)
         
-        updateBoards( { (boardsRaw, error) in
-            
-            guard let boards = boardsRaw as? Array<OAIBoard> else { return }
-            
-            guard let firstBoard = boards.first else { return }
-            
-            updateNotes(withBoardId: firstBoard._id)
-        })
+
         
         // Do any additional setup after loading the view.
     }

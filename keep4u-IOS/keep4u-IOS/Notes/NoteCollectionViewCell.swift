@@ -31,7 +31,7 @@ class NoteCollectionViewCell: UICollectionViewCell
                 
                 let api = OAIDefaultApi()
                 
-                api.notesNoteIdDelete(withNoteId: self.note!._id, completionHandler: { (error) in
+                api.notesNoteIdDelete(withNoteId: self.note!._id, authorization: tokenId, completionHandler: { (error) in
                     assert(error == nil, "Failed to delete board")
                     
                     updateNotes(withBoardId: self.note!.boardId)

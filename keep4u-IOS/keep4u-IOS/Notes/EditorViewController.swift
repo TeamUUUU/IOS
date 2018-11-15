@@ -39,7 +39,7 @@ class EditorViewController: UIViewController {
             noteUpdate.content = self.editorTextView.text
             noteUpdate.attachments = note?.attachments
             
-            api.notesNoteIdPatch(withNoteId: note?._id, noteUpdate: noteUpdate, completionHandler: { (note, error) in
+            api.notesNoteIdPatch(withNoteId: note?._id, authorization: tokenId, noteUpdate: noteUpdate, completionHandler: { (note, error) in
                 assert(note != nil)
                 assert(error == nil)
                 

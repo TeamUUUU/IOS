@@ -21,7 +21,8 @@ public func updateBoards(_ completionHandler: ((OAIBoards?, Error?) -> Void)?)
     let boards = OAIDefaultApi()
     let user = OAIDefaultConfiguration.sharedConfig()?.username
     
-    boards.boardsGet(withUserId: user, completionHandler: { (boardsRaw, error) in
+    
+    boards.boardsGet(withAuthorization: tokenId, completionHandler: { (boardsRaw, error) in
         
         assert(error == nil, "Got error")
         
