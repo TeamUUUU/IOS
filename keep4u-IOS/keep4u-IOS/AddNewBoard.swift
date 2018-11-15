@@ -62,9 +62,7 @@ class AddNewBoard: UIViewController
         {
             board!.title = titleText.text
             board!._description = descriptionText.text
-            board!.changedAt = NSDate().timeIntervalSince1970 as NSNumber
-            
-//            api.boar
+            board!.changedAt = Int(NSDate().timeIntervalSince1970) as NSNumber
             
             api.boardsBoardIdPatch(withBoardId: board!._id, authorization: tokenId, board: board, completionHandler: { (board, error) in
                 assert(board != nil, "Expected board")
