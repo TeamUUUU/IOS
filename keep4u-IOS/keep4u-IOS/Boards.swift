@@ -19,9 +19,7 @@ public func updateBoards()
 public func updateBoards(_ completionHandler: ((OAIBoards?, Error?) -> Void)?)
 {
     let boards = OAIDefaultApi()
-    let user = OAIDefaultConfiguration.sharedConfig()?.username
-    
-    
+
     boards.boardsGet(withAuthorization: tokenId, completionHandler: { (boardsRaw, error) in
         
         assert(error == nil, "Got error")
@@ -29,6 +27,8 @@ public func updateBoards(_ completionHandler: ((OAIBoards?, Error?) -> Void)?)
         guard let boards = boardsRaw as? Array<OAIBoard> else {
             print("\(#function): failed to fetch boards")
             assert(false, "Expected boards")
+            
+            hotObservable.accept(Array())
             return
         }
         

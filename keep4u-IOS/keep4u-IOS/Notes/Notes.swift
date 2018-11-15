@@ -26,6 +26,7 @@ public func updateNotes(withBoardId boardId : String)
         guard let notes = notesRaw else {
             print("\(#function): failed to fetch notes")
             assert(false, "Expected notes")
+            notesObservable.accept(Array())
             return
         }
         

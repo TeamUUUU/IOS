@@ -99,6 +99,11 @@ class UserProfileViewController: UIViewController, GIDSignInUIDelegate
         {_ in
             
             self.updateUIPresentation(signedIn: false)
+            
+            tokenId = ""
+            
+            updateBoards()
+            updateNotes(withBoardId: lastBoardId)
         
         }).disposed(by: disposeBag)
     }
