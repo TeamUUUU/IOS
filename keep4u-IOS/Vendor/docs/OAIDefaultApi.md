@@ -230,6 +230,7 @@ No authorization required
 # **boardsBoardIdDelete**
 ```objc
 -(NSURLSessionTask*) boardsBoardIdDeleteWithBoardId: (NSString*) boardId
+    authorization: (NSString*) authorization
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
@@ -239,11 +240,13 @@ Delete board by id
 ```objc
 
 NSString* boardId = @"boardId_example"; // UUID of board
+NSString* authorization = @"authorization_example"; // Google ClientID token
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 // Delete board by id
 [apiInstance boardsBoardIdDeleteWithBoardId:boardId
+              authorization:authorization
           completionHandler: ^(NSError* error) {
                         if (error) {
                             NSLog(@"Error calling OAIDefaultApi->boardsBoardIdDelete: %@", error);
@@ -256,6 +259,7 @@ OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **boardId** | **NSString***| UUID of board | 
+ **authorization** | **NSString***| Google ClientID token | 
 
 ### Return type
 
@@ -427,6 +431,7 @@ No authorization required
 # **boardsBoardIdPatch**
 ```objc
 -(NSURLSessionTask*) boardsBoardIdPatchWithBoardId: (NSString*) boardId
+    authorization: (NSString*) authorization
     board: (OAIBoard*) board
         completionHandler: (void (^)(OAIBoard* output, NSError* error)) handler;
 ```
@@ -439,12 +444,14 @@ Update board parameters. Note: collaborators array will be replaced by this meth
 ```objc
 
 NSString* boardId = @"boardId_example"; // UUID of board
+NSString* authorization = @"authorization_example"; // Google ClientID token
 OAIBoard* board = [[OAIBoard alloc] init]; //  (optional)
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 // Update board parameters
 [apiInstance boardsBoardIdPatchWithBoardId:boardId
+              authorization:authorization
               board:board
           completionHandler: ^(OAIBoard* output, NSError* error) {
                         if (output) {
@@ -461,6 +468,7 @@ OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **boardId** | **NSString***| UUID of board | 
+ **authorization** | **NSString***| Google ClientID token | 
  **board** | [**OAIBoard***](OAIBoard.md)|  | [optional] 
 
 ### Return type

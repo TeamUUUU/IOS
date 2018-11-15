@@ -95,12 +95,14 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 /// 
 ///
 /// @param boardId UUID of board
+/// @param authorization Google ClientID token
 /// 
 ///  code:204 message:"Ok",
 ///  code:500 message:"Server internal error"
 ///
 /// @return void
 -(NSURLSessionTask*) boardsBoardIdDeleteWithBoardId: (NSString*) boardId
+    authorization: (NSString*) authorization
     completionHandler: (void (^)(NSError* error)) handler;
 
 
@@ -151,6 +153,7 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 /// Update board parameters. Note: collaborators array will be replaced by this method. Use /boards/{board_id}/collaborators if you want to append collaborators to board. 
 ///
 /// @param boardId UUID of board
+/// @param authorization Google ClientID token
 /// @param board  (optional)
 /// 
 ///  code:200 message:"Ok",
@@ -158,6 +161,7 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 ///
 /// @return OAIBoard*
 -(NSURLSessionTask*) boardsBoardIdPatchWithBoardId: (NSString*) boardId
+    authorization: (NSString*) authorization
     board: (OAIBoard*) board
     completionHandler: (void (^)(OAIBoard* output, NSError* error)) handler;
 

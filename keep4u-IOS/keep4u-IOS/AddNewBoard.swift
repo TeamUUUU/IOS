@@ -66,7 +66,7 @@ class AddNewBoard: UIViewController
             
 //            api.boar
             
-            api.boardsBoardIdPatch(withBoardId: board!._id, board: board, completionHandler: { (board, error) in
+            api.boardsBoardIdPatch(withBoardId: board!._id, authorization: tokenId, board: board, completionHandler: { (board, error) in
                 assert(board != nil, "Expected board")
                 assert(error == nil, "Got error")
                 updateBoards()

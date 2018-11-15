@@ -31,7 +31,7 @@ class BoardDetails: UIViewController
     {
         let boards = OAIDefaultApi()
         
-        boards.boardsBoardIdDelete(withBoardId: board?._id, completionHandler: { (error) in
+        boards.boardsBoardIdDelete(withBoardId: board?._id, authorization: tokenId, completionHandler: { (error) in
             assert(error == nil, "Failed to delete board")
             
             updateBoards()

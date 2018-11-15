@@ -22,11 +22,11 @@ public func updateBoards(_ completionHandler: ((OAIBoards?, Error?) -> Void)?)
 
     boards.boardsGet(withAuthorization: tokenId, completionHandler: { (boardsRaw, error) in
         
-        assert(error == nil, "Got error")
+//        assert(error == nil, "Got error")
         
         guard let boards = boardsRaw as? Array<OAIBoard> else {
             print("\(#function): failed to fetch boards")
-            assert(false, "Expected boards")
+//            assert(false, "Expected boards")
             
             hotObservable.accept(Array())
             return

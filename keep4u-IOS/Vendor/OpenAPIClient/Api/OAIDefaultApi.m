@@ -375,15 +375,29 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 /// 
 ///  @param boardId UUID of board 
 ///
+///  @param authorization Google ClientID token 
+///
 ///  @returns void
 ///
 -(NSURLSessionTask*) boardsBoardIdDeleteWithBoardId: (NSString*) boardId
+    authorization: (NSString*) authorization
     completionHandler: (void (^)(NSError* error)) handler {
     // verify the required parameter 'boardId' is set
     if (boardId == nil) {
         NSParameterAssert(boardId);
         if(handler) {
             NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"boardId"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'authorization' is set
+    if (authorization == nil) {
+        NSParameterAssert(authorization);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"authorization"] };
             NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
             handler(error);
         }
@@ -400,6 +414,9 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (authorization != nil) {
+        headerParams[@"Authorization"] = authorization;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {
@@ -531,7 +548,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///  @returns OAINotes*
 ///
 -(NSURLSessionTask*) boardsBoardIdNotesGetWithAuthorization: (NSString*) authorization boardId:(NSString*)boardId
-                                          completionHandler: (void (^)(OAINotes* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAINotes* output, NSError* error)) handler {
     // verify the required parameter 'authorization' is set
     if (authorization == nil) {
         NSParameterAssert(authorization);
@@ -601,9 +618,8 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///  @returns OAINote*
 ///
 -(NSURLSessionTask*) boardsBoardIdNotesPostWithAuthorization: (NSString*) authorization boardId:(NSString*) boardId
-                                                        note: (OAINote*) note
-                                           completionHandler: (void (^)(OAINote* output, NSError* error)) handler
-{
+    note: (OAINote*) note
+    completionHandler: (void (^)(OAINote* output, NSError* error)) handler {
     // verify the required parameter 'authorization' is set
     if (authorization == nil) {
         NSParameterAssert(authorization);
@@ -669,11 +685,14 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 /// Update board parameters. Note: collaborators array will be replaced by this method. Use /boards/{board_id}/collaborators if you want to append collaborators to board. 
 ///  @param boardId UUID of board 
 ///
+///  @param authorization Google ClientID token 
+///
 ///  @param board  (optional)
 ///
 ///  @returns OAIBoard*
 ///
 -(NSURLSessionTask*) boardsBoardIdPatchWithBoardId: (NSString*) boardId
+    authorization: (NSString*) authorization
     board: (OAIBoard*) board
     completionHandler: (void (^)(OAIBoard* output, NSError* error)) handler {
     // verify the required parameter 'boardId' is set
@@ -687,16 +706,30 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/boards/{board_id}"];
+    // verify the required parameter 'authorization' is set
+    if (authorization == nil) {
+        NSParameterAssert(authorization);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"authorization"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/boards/%@", boardId];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (boardId != nil) {
-        pathParams[@"board_id"] = boardId;
-    }
+//    if (boardId != nil) {
+//        pathParams[@"board_id"] = boardId;
+//    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (authorization != nil) {
+        headerParams[@"Authorization"] = authorization;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {
