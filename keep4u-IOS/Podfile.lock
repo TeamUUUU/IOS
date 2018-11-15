@@ -44,6 +44,9 @@ PODS:
   - RxAtomic (4.4.0)
   - RxCocoa (4.4.0):
     - RxSwift (~> 4.0)
+  - RxGesture (2.1.0):
+    - RxCocoa (~> 4.4.0)
+    - RxSwift (~> 4.4.0)
   - RxSwift (4.4.0):
     - RxAtomic (~> 4.4)
   - SideMenu (5.0.1)
@@ -53,6 +56,7 @@ DEPENDENCIES:
   - markymark
   - OpenAPIClient (from `Vendor`)
   - RxCocoa
+  - RxGesture
   - RxSwift
   - SideMenu
 
@@ -68,6 +72,7 @@ SPEC REPOS:
     - markymark
     - RxAtomic
     - RxCocoa
+    - RxGesture
     - RxSwift
     - SideMenu
 
@@ -87,9 +92,10 @@ SPEC CHECKSUMS:
   OpenAPIClient: 0424d5af1aa8f2364de9c89f982383d5e85ca622
   RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
   RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxGesture: 7f6dfb45dbde06e618c24442d38493e3144f2c95
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
   SideMenu: 87efd943737bb83aedf0358884d09fcf5576636d
 
-PODFILE CHECKSUM: 765f9a55b95f99148300156fdf451a3ed9dcfe70
+PODFILE CHECKSUM: e39b1daa9d1f31dde61d8cd265b5da7a5a011add
 
 COCOAPODS: 1.6.0.beta.2

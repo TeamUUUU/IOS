@@ -13,5 +13,6 @@ target 'keep4u-IOS' do
   pod "RxCocoa"
   pod "markymark"
   pod 'GoogleSignIn'
+  pod "RxGesture"
 
 end

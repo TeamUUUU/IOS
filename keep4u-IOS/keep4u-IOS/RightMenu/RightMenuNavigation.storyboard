@@ -23,7 +23,8 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lyE-zV-4N0">
                                         <rect key="frame" x="60" y="0.0" width="120" height="120"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" secondItem="lyE-zV-4N0" secondAttribute="width" multiplier="1:1" id="jWj-83-zGF"/>
+                                            <constraint firstAttribute="width" secondItem="lyE-zV-4N0" secondAttribute="height" multiplier="1:1" id="TqA-8a-PnS"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="120" id="qoM-HH-H6v"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PuQ-Wn-S0f">
@@ -39,6 +40,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eHC-no-phS">
                                         <rect key="frame" x="91.5" y="400.5" width="57" height="30"/>
                                         <state key="normal" title="Sïgh öut"/>
+                                        <connections>
+                                            <action selector="sighOut:" destination="ggK-jn-vrF" eventType="touchUpInside" id="u9O-AY-ltK"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -52,6 +56,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="9jM-JN-cju"/>
                     <connections>
+                        <outlet property="gSignInButton" destination="6Rp-aN-5RG" id="Rx8-BC-JZs"/>
+                        <outlet property="sighOutButton" destination="eHC-no-phS" id="iGA-Bc-38A"/>
                         <outlet property="userImage" destination="lyE-zV-4N0" id="hTb-l9-odG"/>
                         <outlet property="userName" destination="PuQ-Wn-S0f" id="t7H-EE-NvX"/>
                     </connections>

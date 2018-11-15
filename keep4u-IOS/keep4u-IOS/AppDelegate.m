@@ -21,7 +21,7 @@
     
     GIDSignIn* sharedInstance = [GIDSignIn sharedInstance];
     
-    sharedInstance.clientID = @"";
+    sharedInstance.clientID = @"397600752408-gfsd5g4kumsu05bb8u9ldr07u77c8bb2.apps.googleusercontent.com";
     sharedInstance.delegate = self;
     
     if (sharedInstance.hasAuthInKeychain)
@@ -75,12 +75,14 @@ didSignInForUser:(GIDGoogleUser *)user
     NSAssert(user, @"");
     NSAssert(!error, @"");
     
-    if (user && !error)
+    if (!error)
     {
         [[NSNotificationCenter defaultCenter]
          postNotificationName:@"ToggleAuthUINotification"
          object:nil
-         userInfo:nil];
+         userInfo:@{@"signIn" : signIn,
+                    @"user"   : user
+                    }];
     }
 }
     
@@ -88,8 +90,21 @@ didSignInForUser:(GIDGoogleUser *)user
 didDisconnectWithUser:(GIDGoogleUser *)user
      withError:(NSError *)error
 {
-    // Perform any operations when the user disconnects from app here.
-    // ...
+    NSAssert(signIn, @"");
+    NSAssert(user, @"");
+    NSAssert(!error, @"");
+    
+    NSAssert(false, @"");
+    
+    if (!error)
+    {
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"ToggleSignOutNotification"
+         object:nil
+         userInfo:@{@"signIn" : signIn,
+                      @"user" : user
+                    }];
+    }
 }
 
 @end

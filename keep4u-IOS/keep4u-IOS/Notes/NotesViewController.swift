@@ -36,6 +36,7 @@ class NotesViewController: UIViewController {
                 
                 cell.titleLabel.text = element.title
                 cell.contentLabel.text = element.content
+                cell.note = element
                 
                 return cell
                 
@@ -51,7 +52,31 @@ class NotesViewController: UIViewController {
     }
     
 
-
+    @IBAction func addNote(_ sender: Any)
+    {
+        let api = OAIDefaultApi()
+        
+//        api.notesNoteIdDelete(withNoteId: self.note!._id, completionHandler: { (error) in
+//            assert(error == nil, "Failed to delete board")
+//
+//            updateNotes(withBoardId: self.note!.boardId)
+//        })
+        
+        let newNote = OAINote()
+        newNote.title = "New note"
+        
+        
+//        api.boardsBoardIdNotesPost(with: <#T##OAINote!#>, completionHandler: <#T##((OAINote?, Error?) -> Void)!##((OAINote?, Error?) -> Void)!##(OAINote?, Error?) -> Void#>)
+        
+        api.boardsBoardIdNotesPost(with: newNote, boardId: lastBoardId, completionHandler: { (noteRaw, error) in
+            
+            assert(error == nil, "Got error")
+            assert(noteRaw != nil)
+        
+            updateNotes(withBoardId: lastBoardId)
+        })
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         switch segue.identifier

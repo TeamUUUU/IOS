@@ -17,6 +17,11 @@ class UserProfileViewController: UIViewController, GIDSignInUIDelegate
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
     
+    @IBOutlet weak var gSignInButton: GIDSignInButton!
+    @IBOutlet weak var sighOutButton: UIButton!
+    
+    let isSignedIn = BehaviorRelay<Bool>(value: true)
+    
     var downloadableImage: Observable<DownloadableImage>?{
         didSet
         {
@@ -31,6 +36,8 @@ class UserProfileViewController: UIViewController, GIDSignInUIDelegate
     {
         super.viewDidLoad()
         
+        self.updateUIPresentation(signedIn: false)
+        
         self.userImage.layer.masksToBounds = true;
         self.userImage.layer.cornerRadius = 80;
         
@@ -41,21 +48,48 @@ class UserProfileViewController: UIViewController, GIDSignInUIDelegate
             
             let gApi = GIDSignIn.sharedInstance()!
             
-            if (gApi.currentUser.profile.hasImage)
+            let signedIn = gApi.currentUser.authentication != nil
+            
+            if (signedIn)
             {
-                let reachabilityService = Dependencies.sharedDependencies.reachabilityService
-                let url = gApi.currentUser.profile.imageURL(withDimension: UInt(self.userImage.frame.height))
+                if (gApi.currentUser.profile.hasImage)
+                {
+                    let reachabilityService = Dependencies.sharedDependencies.reachabilityService
+                    let url = gApi.currentUser.profile.imageURL(withDimension: UInt(self.userImage.frame.height))
+                    
+                    self.downloadableImage = DefaultImageService.sharedImageService.imageFromURL(url!, reachabilityService: reachabilityService)
+                }
                 
-                self.downloadableImage = DefaultImageService.sharedImageService.imageFromURL(url!, reachabilityService: reachabilityService)
+                self.userName.text = gApi.currentUser.profile.name
             }
             
-            self.userName.text = gApi.currentUser.profile.name
+            self.updateUIPresentation(signedIn: signedIn)
             
+        }).disposed(by: disposeBag)
+        
+        
+        
+        NotificationCenter.default.rx.notification(Notification.Name(rawValue: "ToggleSignOutNotification")).subscribe(
+        {_ in
+            
+            self.updateUIPresentation(signedIn: false)
+        
         }).disposed(by: disposeBag)
     }
     
-    public func updateUIPresentation()
+    public func updateUIPresentation(signedIn : Bool)
+    {
+            userImage.isHidden = !signedIn
+            userName.isHidden = !signedIn
+        
+            gSignInButton.isHidden = signedIn
+            sighOutButton.isHidden = !signedIn
+    }
+    
+    @IBAction func sighOut(_ sender: Any)
     {
         
+        GIDSignIn.sharedInstance()?.signOut()
+        updateUIPresentation(signedIn: false)
     }
 }

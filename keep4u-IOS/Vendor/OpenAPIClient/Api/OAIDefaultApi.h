@@ -130,7 +130,7 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 ///  code:500 message:"Server internal error"
 ///
 /// @return OAINote*
--(NSURLSessionTask*) boardsBoardIdNotesPostWithNote: (OAINote*) note
+-(NSURLSessionTask*) boardsBoardIdNotesPostWithNote: (OAINote*) note boardId:(NSString*) boardId
     completionHandler: (void (^)(OAINote* output, NSError* error)) handler;
 
 

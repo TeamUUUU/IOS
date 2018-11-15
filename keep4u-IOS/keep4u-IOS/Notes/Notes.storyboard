@@ -18,21 +18,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j84-at-yec">
-                                <rect key="frame" x="0.0" y="64" width="375" height="503"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="504"/>
                                 <connections>
                                     <segue destination="sMF-Up-ujU" kind="embed" id="F22-Qe-SGh"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKH-YW-5tw">
-                                <rect key="frame" x="59" y="604" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKH-YW-5tw">
+                                <rect key="frame" x="172.5" y="617" width="30" height="30"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addNote:" destination="zVs-ef-VdN" eventType="touchUpInside" id="aoj-eS-0ed"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="kj9-in-l4U" firstAttribute="trailing" secondItem="j84-at-yec" secondAttribute="trailing" id="DRP-UL-bxl"/>
-                            <constraint firstItem="kj9-in-l4U" firstAttribute="bottom" secondItem="j84-at-yec" secondAttribute="bottom" constant="100" id="gLm-IF-ndG"/>
+                            <constraint firstItem="PKH-YW-5tw" firstAttribute="top" secondItem="j84-at-yec" secondAttribute="bottom" constant="49" id="Pm3-ci-vlq"/>
+                            <constraint firstItem="PKH-YW-5tw" firstAttribute="centerX" secondItem="j84-at-yec" secondAttribute="centerX" id="TCF-pe-hzL"/>
+                            <constraint firstItem="kj9-in-l4U" firstAttribute="bottom" secondItem="PKH-YW-5tw" secondAttribute="bottom" constant="20" id="VfP-d1-AF9"/>
                             <constraint firstItem="j84-at-yec" firstAttribute="top" secondItem="kj9-in-l4U" secondAttribute="top" id="lv5-fh-8ZF"/>
                             <constraint firstItem="j84-at-yec" firstAttribute="leading" secondItem="kj9-in-l4U" secondAttribute="leading" id="tDu-uX-P5k"/>
                         </constraints>
@@ -55,7 +59,7 @@
             <objects>
                 <collectionViewController id="sMF-Up-ujU" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="nhU-Mj-c31">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="503"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nbO-aN-a87">
@@ -99,6 +103,7 @@
                                 <connections>
                                     <outlet property="contentLabel" destination="8Ay-Jy-kdT" id="5IP-Xg-Pno"/>
                                     <outlet property="titleLabel" destination="Cpg-kW-I04" id="HBr-Fg-Xwc"/>
+                                    <segue destination="kwG-jf-Pws" kind="presentation" identifier="showNoteDetail" id="4TL-lV-nb8"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -108,6 +113,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RJe-Jb-nml" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1230" y="-365"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="2ut-Qw-OG7">
+            <objects>
+                <viewController id="kwG-jf-Pws" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rue-Pq-49a">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="QsW-4W-6ad"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DZA-KC-e8r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2045" y="-600"/>
         </scene>
         <!--NoteRaw-->
         <scene sceneID="kp1-zZ-Mfc">

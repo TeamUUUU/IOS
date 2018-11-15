@@ -11,6 +11,9 @@ import RxCocoa
 
 var notesObservable = BehaviorRelay<Array<OAINote>>(value: [])
 
+var lastBoardId : String = ""
+
+
 public func updateNotes(withBoardId boardId : String)
 {
     let api = OAIDefaultApi()
@@ -29,6 +32,7 @@ public func updateNotes(withBoardId boardId : String)
 //        print("last note: \(String(describing: (notes as! Array<OAINote>).last))")
         
         notesObservable.accept(notes as! Array<OAINote>)
+        lastBoardId = boardId
     }
     )
     
