@@ -61,35 +61,40 @@ class UserProfileViewController: UIViewController, GIDSignInUIDelegate
         NotificationCenter.default.rx.notification(Notification.Name(rawValue: "ToggleAuthUINotification")).subscribe(
         {_ in
             
-            let gApi = GIDSignIn.sharedInstance()!
-            
-            let signedIn = gApi.currentUser.authentication != nil
-            
-            if (signedIn)
+            DispatchQueue.main.async
             {
-                tokenId = gApi.currentUser.authentication.idToken                
-
-                updateBoards( { (boardsRaw, error) in
-                    
-                    guard let boards = boardsRaw as? Array<OAIBoard> else { return }
-                    
-                    guard let firstBoard = boards.first else { return }
-                    
-                    updateNotes(withBoardId: firstBoard._id)
-                })
+                let gApi = GIDSignIn.sharedInstance()!
                 
-                if (gApi.currentUser.profile.hasImage)
+                let signedIn = gApi.currentUser.authentication != nil
+                
+                self.updateUIPresentation(signedIn: signedIn)
+                
+                if (signedIn)
                 {
-                    let reachabilityService = Dependencies.sharedDependencies.reachabilityService
-                    let url = gApi.currentUser.profile.imageURL(withDimension: UInt(self.userImage.frame.height))
+                    tokenId = gApi.currentUser.authentication.idToken
+
+                    updateBoards( { (boardsRaw, error) in
+                        
+                        guard let boards = boardsRaw as? Array<OAIBoard> else { return }
+                        
+                        guard let firstBoard = boards.first else { return }
+                        
+                        updateNotes(withBoardId: firstBoard._id)
+                    })
                     
-                    self.downloadableImage = DefaultImageService.sharedImageService.imageFromURL(url!, reachabilityService: reachabilityService)
+                    if (gApi.currentUser.profile.hasImage)
+                    {
+                        let reachabilityService = Dependencies.sharedDependencies.reachabilityService
+                        let url = gApi.currentUser.profile.imageURL(withDimension: UInt(self.userImage.frame.height))
+                        
+                        self.downloadableImage = DefaultImageService.sharedImageService.imageFromURL(url!, reachabilityService: reachabilityService)
+                    }
+                    
+                    self.userName.text = gApi.currentUser.profile.name
                 }
-                
-                self.userName.text = gApi.currentUser.profile.name
             }
             
-            self.updateUIPresentation(signedIn: signedIn)
+            
             
         }).disposed(by: disposeBag)
         
@@ -97,30 +102,37 @@ class UserProfileViewController: UIViewController, GIDSignInUIDelegate
         
         NotificationCenter.default.rx.notification(Notification.Name(rawValue: "ToggleSignOutNotification")).subscribe(
         {_ in
-            
-            self.updateUIPresentation(signedIn: false)
-            
-            tokenId = ""
-            
-            updateBoards()
-            updateNotes(withBoardId: lastBoardId)
+
+            DispatchQueue.main.async
+                {
+                    self.updateUIPresentation(signedIn: false)
+                    
+            }
         
         }).disposed(by: disposeBag)
     }
     
     public func updateUIPresentation(signedIn : Bool)
     {
-            userImage.isHidden = !signedIn
-            userName.isHidden = !signedIn
+        DispatchQueue.main.async
+            {
+                self.userImage.isHidden = !signedIn
+                self.userName.isHidden = !signedIn
         
-            gSignInButton.isHidden = signedIn
-            sighOutButton.isHidden = !signedIn
+                self.gSignInButton.isHidden = signedIn
+                self.sighOutButton.isHidden = !signedIn
+                
+        }
     }
     
     @IBAction func sighOut(_ sender: Any)
     {
-        
         GIDSignIn.sharedInstance()?.signOut()
         updateUIPresentation(signedIn: false)
+        
+        tokenId = ""
+        
+        updateBoards()
+        updateNotes(withBoardId: lastBoardId)
     }
 }
