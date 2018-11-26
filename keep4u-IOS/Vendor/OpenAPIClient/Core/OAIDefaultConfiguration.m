@@ -28,7 +28,7 @@
 - (instancetype) init {
     self = [super init];
     if (self) {
-        _host = @"http://188.246.233.13:8080";
+        _host = @"http://keep4u.space:8080";
         _username = @"";
         _password = @"";
         _accessToken= @"";
